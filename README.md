@@ -24,7 +24,7 @@ User = {
 	id: '1', 																// Int
 	name: 'John Doe', 											// String
 	slideShows: [
-		// Collection of SlideShow objects		// Related object collection
+	// Collection of SlideShow objects			// Related object collection
 	],
 	createdAt: new Date(), 									// DateTime as Timestamp
 	updatedAt: new Date() 									// DateTime as Timestamp	
@@ -34,13 +34,13 @@ User = {
 
 // SlideShow Model
 SlideShow = {
-  id: '1', 																// Int
-  owner: { // User object }, 							// Related object
-  name: 'My awesome slideshow', 					// String
-  slides: [
-    //Collection of slide objects					// Related object collection
-  ],
-  createdAt: new Date(), 									// DateTime as Timestamp
+	id: '1', 																// Int
+	owner: { // User object }, 							// Related object
+	name: 'My awesome slideshow', 					// String
+	slides: [
+	//Collection of slide objects						// Related object collection
+	],
+	createdAt: new Date(), 									// DateTime as Timestamp
 	updatedAt: new Date() 									// DateTime as Timestamp
 }
 
@@ -48,12 +48,12 @@ SlideShow = {
 
 // Slide Model
 Slide = {
-  id: '1', 																// Int,
-  slideshow: { // SlideShow object }, 		// Related object
-  elements: [
-  	// Collection of Element objects			// Related object collection
-  ],
-  createdAt: new Date(), 									// DateTime as Timestamp
+	id: '1', 																// Int,
+	slideshow: { // SlideShow object }, 		// Related object
+	elements: [
+	// Collection of Element objects				// Related object collection
+	],
+	createdAt: new Date(), 									// DateTime as Timestamp
 	updatedAt: new Date() 									// DateTime as Timestamp														
 }
 
@@ -63,7 +63,7 @@ Slide = {
 Element = {
 	id: '1',																// Int
 	slide:  { // Slide object },						// Related object
-	type: { // ElementType object }, 						// Related object
+	type: { // ElementType object }, 				// Related object
 	name: 'title',													// String
 	content: 'This is a title', 						// String
 }
