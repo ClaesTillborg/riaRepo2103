@@ -1,4 +1,4 @@
-define(['backbone', 'slide', 'elementType'], function(Backbone, Slide, ElementType) {
+define(['namespace', 'backbone', 'slide', 'elementType'], function(App, Backbone, Slide, ElementType) {
 
     App.Models.Element = Backbone.Model.extend({
 

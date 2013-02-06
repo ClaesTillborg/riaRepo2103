@@ -1,4 +1,4 @@
-define(['backbone', 'slideShow', 'elements'], function(Backbone, SlideShow, Elements) {
+define(['namespace', 'backbone', 'slideShow', 'elements'], function(App, Backbone, SlideShow, Elements) {
 
     App.Models.Slide = Backbone.Model.extend({
 

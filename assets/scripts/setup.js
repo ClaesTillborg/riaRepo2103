@@ -1,17 +1,3 @@
-/* Namespace */
-(function(){
-    window.App = {
-        Models: {},
-        Views: {},
-        Collections: {},
-        Helpers: {},
-        Routes: {},
-        Templates: {}
-    };
-
-})();
-
-
 define([
     'backbone',
     'underscore',
@@ -21,7 +7,7 @@ define([
     'users',
     'usersView'
 ], function(
-    Backbone, _, $, routes, TestModel, TestCollection, TestCollectionView) {
+    Backbone, _, $, routes, User, Users, UsersView) {
 
     /**
      * Starts Backbone router
@@ -34,13 +20,11 @@ define([
      *
      * @type {myCollection}
      */
-    var collection = new TestCollection([
-        { title: 'manual object1' },
-        { title: 'manual object2' },
-        new TestModel({ title: 'myModel1' }),
-        new TestModel({ title: 'myModel2' }),
-        new TestModel({ title: 'myModel3' }),
-        new TestModel({ title: 'myModel4' })
+    var collection = new Users([
+        new User(),
+        new User({ name: 'Jane Doe' }),
+        new User({ name: 'Claes Tillborg' }),
+        new User({ name: 'Tord Bob' })
     ]);
 
     /**

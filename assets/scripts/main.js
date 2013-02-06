@@ -20,6 +20,7 @@ require.config({
 
     // config
         'routes': CONFIGPATH + 'routes',
+        'namespace': CONFIGPATH + 'namespace',
 
     // app
         // models

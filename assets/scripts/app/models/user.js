@@ -1,5 +1,4 @@
-define(['backbone'], function(Backbone) {
-
+define(['namespace', 'backbone'], function(App, Backbone) {
     App.Models.User = Backbone.Model.extend({
 
         defaults: {

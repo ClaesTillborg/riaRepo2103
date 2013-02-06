@@ -1,4 +1,4 @@
-define([ 'backbone', 'underscore', 'jquery' ], function( Backbone, _, $) {
+define(['namespace', 'backbone', 'underscore', 'jquery' ], function(App, Backbone, _, $) {
     App.Helpers.Template = function(id) {
         return _.template( $('#' + id).html() );
     };
