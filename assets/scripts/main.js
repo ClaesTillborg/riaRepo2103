@@ -22,19 +22,40 @@ require.config({
         'routes': CONFIGPATH + 'routes',
 
     // app
+        // models
+        'user': MODELSPATH + 'user',
+        'slideShow': MODELSPATH + 'slideShow',
+        'slide': MODELSPATH + 'slide',
+        'element': MODELSPATH + 'element',
+        'elementType': MODELSPATH + 'elementType',
+
         // collections
-        'myCollection': COLLECTIONSPATH + 'myCollection',
+        'users': COLLECTIONSPATH + 'users',
+        'slideShows': COLLECTIONSPATH + 'slideShows',
+        'slides': COLLECTIONSPATH + 'slides',
+        'elements': COLLECTIONSPATH + 'elements',
+        'elementTypes': COLLECTIONSPATH + 'elementTypes',
+
+    // views
+        // user
+        'userView': VIEWSPATH + 'user/single',
+        'usersView': VIEWSPATH + 'user/collection',
+
+        // slideShow
+        'slideShowView': VIEWSPATH + 'slideShow/single',
+        'slideShowsView': VIEWSPATH + 'slideShow/collection',
+
+        // slide
+        'slideView': VIEWSPATH + 'slide/single',
+        'slidesView': VIEWSPATH + 'slide/collection',
+
+        'elementView': VIEWSPATH + 'element/single',
+        'elementsView': VIEWSPATH + 'element/collection',
+
 
         // helpers
         'templateHelper': HELPERSPATH + 'template',
         'eventHelper': HELPERSPATH + 'event',
-
-        // models
-        'myModel': MODELSPATH + 'myModel',
-
-        // views
-        'myView': VIEWSPATH + 'myView',
-        'myCollectionView': VIEWSPATH + 'myCollectionView',
 
         // templates
         'myTemplate': TEMPLATESPATH + 'myTemplate',

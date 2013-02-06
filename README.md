@@ -1,11 +1,11 @@
 RIA-projektet 2013 - JavaScript med backbone, underscore, jquery och require
 ===========
 
-## Slide-verktyg i javascript
+## Slide-verktyg i javascript ##
 
 Appen skapad som en del av kursen [RIA-utveckling med JavaScript, LNU Vintern/Våren 2013](https://coursepress.lnu.se/kurs/ria-utveckling-med-javascript/) är ett simpelt verktyg för att skapa egna slideshows.
 
-## Applikationens Relationer
+## Applikationens Relationer ##
 
 >Användaren kan skapa ett eller flera slideshows
 
@@ -15,7 +15,7 @@ Appen skapad som en del av kursen [RIA-utveckling med JavaScript, LNU Vintern/V�
 
 >Varje element kommer ha en speciel typ(ex. h1, h2, li, p)
 
-## Applikationens objekt/modeller
+## Applikationens objekt/modeller ##
 
 ```javascript
 
