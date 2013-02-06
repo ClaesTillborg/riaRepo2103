@@ -9,7 +9,7 @@ define(['backbone', 'user', 'slides'], function(Backbone, User, Slides) {
             createdAt: new Date(),
             updatedAt: new Date()
         },
-        urlRoots: 'slideshows',
+        urlRoots: 'slide-shows',
         validate: function(attrs) {
         }
     });

@@ -17,9 +17,9 @@ define([
     'underscore',
     'jquery',
     'resources',
-    'myModel',
-    'myCollection',
-    'myCollectionView'
+    'user',
+    'users',
+    'usersView'
 ], function(
     Backbone, _, $, routes, TestModel, TestCollection, TestCollectionView) {
 
