@@ -1,0 +1,11 @@
+{
+    "name": "Project Name",
+    "version": "1.0.0",
+    "dependencies": {
+        "jQuery": null,
+        "backbone-amd": null,
+        "underscore-amd": null,
+        "requirejs": null,
+        "foundation": null
+    }
+}

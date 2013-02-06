@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>Title</title>
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- CSS -->
+	<link href="assets/css/style.css" media="all" rel="stylesheet" type="text/css">
+	
+	<!-- favicon -->
+	<link href="assets/img/icons/favicon.ico" rel="icon" type="image/x-icon">
+	<link href="assets/img/icons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	
+	<!-- touch img -->
+	<link href="assets/img/icons/apple-touch-icon.png" rel="apple-touch-icon" type="image/png">
+	<link href="assets/img/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png">
+	<link href="assets/img/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" type="image/png">
+</head>
+<body>
+	<div class="content">
+		
+		<header class="header">
+            <h1>Header</h1>
+		</header> <!-- /header -->
+		
+		<section class="main">
+            <script type="text/template" id="myTemplate">
+                <div><strong>myModel was created at:</strong> <%= createdAt %></div>
+                <div><strong> and was updated at:</strong> <%= updatedAt %></div>
+            </script>
+		</section> <!-- /main -->
+		
+		<footer class="footer">
+            <h2>Footer</h2>
+		</footer> <!-- /footer -->
+
+	</div> <!-- /content -->
+
+	<!-- scripts -->
+    <script type="text/javascript" data-main="assets/scripts/main.js" src="assets/scripts/libs/requirejs/require.js"></script>
+    </body>
+</html>
