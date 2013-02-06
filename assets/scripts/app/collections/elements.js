@@ -1,4 +1,4 @@
-define(['namespace', 'backbone', 'element'],function(App, Backbone, Element) {
+define(['backbone', 'element'],function(Backbone, Element) {
     App.Collections.Elements = Backbone.Collection.extend({
         model: Element,
         url: '/elements'

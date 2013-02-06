@@ -1,4 +1,4 @@
-define(['namespace', 'backbone', 'elementType'],function(App, Backbone, ElementType) {
+define(['backbone', 'elementType'],function(Backbone, ElementType) {
     App.Collections.ElementTypes = Backbone.Collection.extend({
         model: ElementType
     });

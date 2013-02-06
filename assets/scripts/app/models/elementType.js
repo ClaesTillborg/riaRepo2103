@@ -1,4 +1,4 @@
-define(['namespace', 'backbone'], function(App, Backbone) {
+define(['backbone'], function(Backbone) {
 
     App.Models.ElementType = Backbone.Model.extend({
         defaults: {

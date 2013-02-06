@@ -1,8 +1,6 @@
-define(['namespace', 'backbone', 'user'],function(App, Backbone, User) {
+define(['backbone', 'user'], function(Backbone, User) {
     App.Collections.Users = Backbone.Collection.extend({
-        model: User,
-        url: '/users'
+        model: User
     });
-
-    return App.Collections.User;
+    return App.Collections.Users;
 });

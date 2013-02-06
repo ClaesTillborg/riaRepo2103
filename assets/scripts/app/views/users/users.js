@@ -1,12 +1,11 @@
-define([ 'backbone', 'templateHelper', 'myView' ], function( Backbone, Template, myView) {
+define(['backbone', 'templateHelper', 'userView' ], function(Backbone, Template, UserView) {
 
-
-    App.Views.myCollectionView = Backbone.View.extend({
+    App.Views.Users = Backbone.View.extend({
 
         tagName: 'ul',
 
-        className: 'myCollectionViewClassName',
-        id: 'myCollectionViewId',
+        className: 'users-class-name',
+        id: 'users-id',
 
         initialize: function() {
             this.collection.on( 'add', this.addOne, this );
@@ -20,10 +19,10 @@ define([ 'backbone', 'templateHelper', 'myView' ], function( Backbone, Template,
 
         addOne: function(model) {
 
-            var view = new myView({ model: model } );
+            var view = new UserView({ model: model } );
             this.$el.append ( view.render().el );
         }
     });
 
-    return App.Views.myCollectionView;
+    return App.Views.Users;
 });

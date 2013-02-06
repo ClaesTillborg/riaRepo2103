@@ -1,6 +1,6 @@
-define(['namespace', 'backbone'], function(App, Backbone) {
-    App.Models.User = Backbone.Model.extend({
+define(['backbone'], function(Backbone) {
 
+    App.Models.User = Backbone.Model.extend({
         defaults: {
             name: 'Anonymous',
             createdAt: new Date(),

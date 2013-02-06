@@ -1,4 +1,4 @@
-define(['namespace', 'backbone', 'slideShow'],function(App, Backbone, SlideShow) {
+define(['backbone', 'slideShow'],function(Backbone, SlideShow) {
     App.Collections.SlideShows = Backbone.Collection.extend({
         model: SlideShow,
         url: '/slide-shows'

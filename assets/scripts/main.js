@@ -1,68 +1,79 @@
 /* global require */
 
-// path constants
-var COLLECTIONSPATH = 'app/collections/';
-var HELPERSPATH = 'app/helpers/';
-var MODELSPATH = 'app/models/';
-var VIEWSPATH = 'app/views/';
-var TEMPLATESPATH = 'app/templates/';
-var RESOURCEPATH = 'app/resources/';
-var CONFIGPATH = 'config/';
-
 // Create paths for all the modules of tha application
 require.config({
     paths: {
-    // libs
+        /* ================================ libs ================================ */
+
+        // Here are the paths to the libraries in the application
         'jquery': 'libs/jquery/jquery.min',
         'underscore': 'libs/underscore-amd/underscore-min',
         'backbone': 'libs/backbone-amd/backbone-min',
         'foundation': 'libs/foundation',
 
-    // config
-        'routes': CONFIGPATH + 'routes',
-        'namespace': CONFIGPATH + 'namespace',
+        /* ================================ config ================================ */
 
-    // app
-        // models
-        'user': MODELSPATH + 'user',
-        'slideShow': MODELSPATH + 'slideShow',
-        'slide': MODELSPATH + 'slide',
-        'element': MODELSPATH + 'element',
-        'elementType': MODELSPATH + 'elementType',
+        // Some config files
+        'routes': 'config/routes',
+        'namespace': 'config/namespace',
 
-        // collections
-        'users': COLLECTIONSPATH + 'users',
-        'slideShows': COLLECTIONSPATH + 'slideShows',
-        'slides': COLLECTIONSPATH + 'slides',
-        'elements': COLLECTIONSPATH + 'elements',
-        'elementTypes': COLLECTIONSPATH + 'elementTypes',
+        /* ================================ helpers ================================ */
 
-    // views
-        // user
-        'userView': VIEWSPATH + 'user/single',
-        'usersView': VIEWSPATH + 'user/collection',
+        // Some helpers on the way
+        'templateHelper': 'app/helpers/template',
+        'eventHelper': 'app/helpers/event',
 
-        // slideShow
-        'slideShowView': VIEWSPATH + 'slideShow/single',
-        'slideShowsView': VIEWSPATH + 'slideShow/collection',
+        /* ================================ templates ================================ */
 
-        // slide
-        'slideView': VIEWSPATH + 'slide/single',
-        'slidesView': VIEWSPATH + 'slide/collection',
+        // All the templates in the application
+        //'userTemplate': 'text!app/templates/users/user',
 
-        'elementView': VIEWSPATH + 'element/single',
-        'elementsView': VIEWSPATH + 'element/collection',
+        /* ================================ resources ================================ */
 
+        // Every models resorce-routes
+        'userRoutes': 'app/resources/user',
 
-        // helpers
-        'templateHelper': HELPERSPATH + 'template',
-        'eventHelper': HELPERSPATH + 'event',
+        /* ================================ models ================================ */
 
-        // templates
-        'myTemplate': TEMPLATESPATH + 'myTemplate',
+        // All the models in the application
+        'user': 'app/models/user',
+        'slideShow': 'app/models/slideShow',
+        'slide': 'app/models/slide',
+        'element': 'app/models/element',
+        'elementType': 'app/models/elementType',
 
-        // resources
-        'myModelRoutes': RESOURCEPATH + 'myModelRoutes'
+        /* ================================ collections ================================ */
+
+        // All the collections in the application
+        'users': 'app/collections/users',
+        'slideShows': 'app/collections/slideShows',
+        'slides': 'app/collections/slides',
+        'elements': 'app/collections/elements',
+        'elementTypes': 'app/collections/elementTypes',
+
+        /* ================================ views ================================ */
+
+        // All the views in the application separated in model-folders
+
+        // users
+        'userView': 'app/views/users/user',
+        'usersView': 'app/views/users/users',
+
+        // slideShows
+        'slideShowView': 'app/views/slideShows/slideShow',
+        'slideShowsView': 'app/views/slideShows/slideShows',
+
+        // slides
+        'slideView': 'app/views/slides/slide',
+        'slidesView': 'app/views/slides/slides',
+
+        // elements
+        'elementView': 'app/views/elements/element',
+        'elementsView': 'app/views/elements/elements',
+
+        // elementTypes
+        'elementTypeView': 'app/views/elementTypes/elementType',
+        'elementsTypeView': 'app/views/elementTypes/elementTypes'
     }
 });
 require(['setup']);

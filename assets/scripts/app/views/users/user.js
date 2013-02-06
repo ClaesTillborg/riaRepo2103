@@ -1,14 +1,12 @@
-define([ 'backbone', 'templateHelper' ], function( Backbone, Template) {
-
-
-    App.Views.myView = Backbone.View.extend({
+define(['backbone', 'templateHelper'], function(Backbone, Template) {
+    // UserView
+    App.Views.User = Backbone.View.extend({
 
         tagName: 'li',
 
-        template: Template('myTemplate'),
+        template: Template('user'),
 
-        className: 'myViewClassName',
-        id: 'myViewId',
+        className: 'user-class-name',
 
         events: {
             'click': 'clickEvent'
@@ -26,5 +24,5 @@ define([ 'backbone', 'templateHelper' ], function( Backbone, Template) {
         }
     });
 
-    return App.Views.myView;
+    return App.Views.User;
 });

@@ -1,8 +1,7 @@
 define(['backbone'], function(Backbone) {
 
-    /**
-     * Model resources with including functions
-     */
+    // Model resources with including functions
+
     App.Routes.Routes = Backbone.Router.extend({
         routes: {
             '': 'root',
@@ -102,6 +101,5 @@ define(['backbone'], function(Backbone) {
             console.log(filename);
         }
     });
-
     return App.Routes.Routes;
 });

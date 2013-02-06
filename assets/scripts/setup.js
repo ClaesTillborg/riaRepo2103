@@ -1,8 +1,20 @@
+(function(){
+    window.App = {
+        Models: {},
+        Views: {},
+        Collections: {},
+        Helpers: {},
+        Routes: {},
+        Templates: {}
+    };
+
+})();
+
 define([
     'backbone',
     'underscore',
     'jquery',
-    'resources',
+    'routes',
     'user',
     'users',
     'usersView'
@@ -15,24 +27,19 @@ define([
     new routes;
     Backbone.history.start();
 
-    /**
-     * Creates a collection of models
-     *
-     * @type {myCollection}
-     */
-    var collection = new Users([
+    
+    // Creates a collection of models
+    var users = new Users([
         new User(),
+        new User({ name: 'John Doe' }),
         new User({ name: 'Jane Doe' }),
         new User({ name: 'Claes Tillborg' }),
         new User({ name: 'Tord Bob' })
     ]);
 
-    /**
-     * Creates the view for the collection
-     *
-     * @type {myCollectionView}
-     */
-    var view = new TestCollectionView({ collection: collection });
+    // Create a usersView
+    var view = new UsersView({ collection: users });
+
     $('.main').append(view.render().el);
 
 
