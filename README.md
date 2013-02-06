@@ -13,7 +13,7 @@ Appen skapad som en del av kursen [RIA-utveckling med JavaScript, LNU Vintern/VÃ
 
 >Varje slide kommer ha ett eller flera element(ex titel, subtitel, lista, text)
 
->Varje element kommer ha en speciel typ(ex h1, li, p)
+>Varje element kommer ha en speciel typ(ex. h1, h2, li, p)
 
 ## Applikationens objekt/modeller
 
@@ -21,59 +21,59 @@ Appen skapad som en del av kursen [RIA-utveckling med JavaScript, LNU Vintern/VÃ
 
 // User Model
 User = {
-	id: '1', 																// Int
-	name: 'John Doe', 											// String
+	id: '1',								// Int
+	name: 'John Doe',								// String
 	slideShows: [
-	// Collection of SlideShow objects			// Related object collection
+	// Collection of SlideShow objects								// Related object collection
 	],
-	createdAt: new Date(), 									// DateTime as Timestamp
-	updatedAt: new Date() 									// DateTime as Timestamp	
+	createdAt: new Date(),								// DateTime as Timestamp
+	updatedAt: new Date()								// DateTime as Timestamp	
 }
 
 /* ========================================================================= */
 
 // SlideShow Model
 SlideShow = {
-	id: '1', 																// Int
-	owner: { // User object }, 							// Related object
-	name: 'My awesome slideshow', 					// String
+	id: '1',								// Int
+	owner: { // User object },								// Related object
+	name: 'My awesome slideshow',								// String
 	slides: [
-	//Collection of slide objects						// Related object collection
+	//Collection of slide objects								// Related object collection
 	],
-	createdAt: new Date(), 									// DateTime as Timestamp
-	updatedAt: new Date() 									// DateTime as Timestamp
+	createdAt: new Date(),								// DateTime as Timestamp
+	updatedAt: new Date()								// DateTime as Timestamp
 }
 
 /* ========================================================================= */
 
 // Slide Model
 Slide = {
-	id: '1', 																// Int,
-	slideshow: { // SlideShow object }, 		// Related object
+	id: '1',								// Int
+	slideshow: { // SlideShow object },								// Related object
 	elements: [
-	// Collection of Element objects				// Related object collection
+	// Collection of Element objects								// Related object collection
 	],
-	createdAt: new Date(), 									// DateTime as Timestamp
-	updatedAt: new Date() 									// DateTime as Timestamp														
+	createdAt: new Date(),								// DateTime as Timestamp
+	updatedAt: new Date()								// DateTime as Timestamp														
 }
 
 /* ========================================================================= */
 
 // Element Model
 Element = {
-	id: '1',																// Int
-	slide:  { // Slide object },						// Related object
-	type: { // ElementType object }, 				// Related object
-	name: 'title',													// String
-	content: 'This is a title', 						// String
+	id: '1',								// Int
+	slide:  { // Slide object },								// Related object
+	type: { // ElementType object },								// Related object
+	name: 'title',								// String
+	content: 'This is a title',								// String
 }
 
 /* ========================================================================= */
 
 // ElementType Model
 ElementType = {
-	id: '1',																// Int
-	type: 'h1' 															// String
+	id: '1',								// Int
+	type: 'h1'								// String
 }
 
 
