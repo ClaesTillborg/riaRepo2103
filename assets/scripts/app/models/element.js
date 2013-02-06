@@ -1,11 +1,11 @@
-define(['backbone', 'slide', 'elementType'], function(Backbone, Slide, ElementType) {
+define(['backbone'], function(Backbone) {
 
     App.Models.Element = Backbone.Model.extend({
 
         defaults: {
-            slide: new Slide, // Slide object
-            type: new ElementType({ type: 'h1' }), // ElementType object
-            content: 'ello world!',
+            slide: {}, // Slide object
+            type: 'h1', // ElementType object
+            content: 'Hello world!',
             createdAt: new Date(),
             updatedAt: new Date()
         },

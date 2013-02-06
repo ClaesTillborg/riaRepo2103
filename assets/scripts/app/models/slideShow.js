@@ -1,11 +1,11 @@
-define(['backbone', 'user', 'slides'], function(Backbone, User, Slides) {
+define(['backbone'], function(Backbone) {
 
     App.Models.SlideShow = Backbone.Model.extend({
 
         defaults: {
-            owner: new User, // User object
+            owner: {}, // User object
             name: 'Hello world slideshow!',
-            slides: Slides({ slideShow: this }) , // Slide Collection
+            slides: [],// Slides({ slideShow: this }) , // Slide Collection
             createdAt: new Date(),
             updatedAt: new Date()
         },

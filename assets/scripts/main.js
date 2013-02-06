@@ -31,7 +31,7 @@ require.config({
         /* ================================ resources ================================ */
 
         // Every models resorce-routes
-        'userRoutes': 'app/resources/user',
+        'userResources': 'app/resources/user',
 
         /* ================================ models ================================ */
 

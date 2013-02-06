@@ -1,10 +1,10 @@
-define(['backbone', 'slideShow', 'elements'], function(Backbone, SlideShow, Elements) {
+define(['backbone'], function(Backbone) {
 
     App.Models.Slide = Backbone.Model.extend({
 
         defaults: {
-            slideShow: new SlideShow, // SlideShow object
-            elements: new Elements({ slide: this }), // Element Collection
+            slideShow: {}, // SlideShow object
+            elements: [], // Element Collection
             createdAt: new Date(),
             updatedAt: new Date()
         },

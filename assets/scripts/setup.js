@@ -5,6 +5,7 @@
         Collections: {},
         Helpers: {},
         Routes: {},
+        Resourses: {},
         Templates: {}
     };
 
@@ -14,12 +15,15 @@ define([
     'backbone',
     'underscore',
     'jquery',
-    'routes',
+    'userResources',
     'user',
     'users',
-    'usersView'
+    'usersView',
+    'slideShow',
+    'slideShows',
+    'slideShowsView'
 ], function(
-    Backbone, _, $, routes, User, Users, UsersView) {
+    Backbone, _, $, routes, User, Users, UsersView, SlideShow, SlideShows, SlideShowsView) {
 
     /**
      * Starts Backbone router
@@ -27,7 +31,13 @@ define([
     new routes;
     Backbone.history.start();
 
-    
+    var user = new User({ name: 'Claes Tillborg' });
+    var slideShow = new SlideShow({ owner: user })
+
+    var slideShows = new SlideShows([
+        slideShow
+    ]);
+
     // Creates a collection of models
     var users = new Users([
         new User(),
@@ -38,9 +48,12 @@ define([
     ]);
 
     // Create a usersView
-    var view = new UsersView({ collection: users });
+    var usersView = new UsersView({ collection: users });
+    var slideShowsView = new SlideShowsView({ collection: slideShows });
 
-    $('.main').append(view.render().el);
+    console.log(slideShow);
+    $('.main').append(usersView.render().el);
+    $('.main').append(slideShowsView.render().el);
 
 
 });
