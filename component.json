@@ -6,6 +6,7 @@
         "backbone-amd": null,
         "underscore-amd": null,
         "requirejs": null,
+        "requirejs-text": null,
         "foundation": null
     }
 }

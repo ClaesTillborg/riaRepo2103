@@ -929,8 +929,8 @@
   // Backbone.Router
   // ---------------
 
-  // Routers map faux-URLs to actions, and fire events when resources are
-  // matched. Creating a new one sets its `resources` hash, if not set statically.
+  // Routers map faux-URLs to actions, and fire events when routes are
+  // matched. Creating a new one sets its `routes` hash, if not set statically.
   var Router = Backbone.Router = function(options) {
     options || (options = {});
     if (options.routes) this.routes = options.routes;
@@ -977,9 +977,9 @@
       return this;
     },
 
-    // Bind all defined resources to `Backbone.history`. We have to reverse the
-    // order of the resources here to support behavior where the most general
-    // resources can be defined at the bottom of the route map.
+    // Bind all defined routes to `Backbone.history`. We have to reverse the
+    // order of the routes here to support behavior where the most general
+    // routes can be defined at the bottom of the route map.
     _bindRoutes: function() {
       if (!this.routes) return;
       var route, routes = _.keys(this.routes);
@@ -1136,7 +1136,7 @@
     },
 
     // Add a route to be tested when the fragment changes. Routes added later
-    // may override previous resources.
+    // may override previous routes.
     route: function(route, callback) {
       this.handlers.unshift({route: route, callback: callback});
     },
@@ -1154,7 +1154,7 @@
     },
 
     // Attempt to load the current URL fragment. If a route succeeds with a
-    // match, returns `true`. If no defined resources matches the fragment,
+    // match, returns `true`. If no defined routes matches the fragment,
     // returns `false`.
     loadUrl: function(fragmentOverride) {
       var fragment = this.fragment = this.getFragment(fragmentOverride);

@@ -144,7 +144,7 @@ $(document).ready(function() {
     equal(router.testing, 101);
   });
 
-  test("resources (simple)", 4, function() {
+  test("routes (simple)", 4, function() {
     location.replace('http://example.com#search/news');
     Backbone.history.checkUrl();
     equal(router.query, 'news');
@@ -153,20 +153,20 @@ $(document).ready(function() {
     equal(lastArgs[0], 'news');
   });
 
-  test("resources (two part)", 2, function() {
+  test("routes (two part)", 2, function() {
     location.replace('http://example.com#search/nyc/p10');
     Backbone.history.checkUrl();
     equal(router.query, 'nyc');
     equal(router.page, '10');
   });
 
-  test("resources via navigate", 2, function() {
+  test("routes via navigate", 2, function() {
     Backbone.history.navigate('search/manhattan/p20', {trigger: true});
     equal(router.query, 'manhattan');
     equal(router.page, '20');
   });
 
-  test("resources via navigate for backwards-compatibility", 2, function() {
+  test("routes via navigate for backwards-compatibility", 2, function() {
     Backbone.history.navigate('search/manhattan/p20', true);
     equal(router.query, 'manhattan');
     equal(router.page, '20');
@@ -184,7 +184,7 @@ $(document).ready(function() {
     });
   });
 
-  test("loadUrl is not called for identical resources.", 0, function() {
+  test("loadUrl is not called for identical routes.", 0, function() {
     Backbone.history.loadUrl = function(){ ok(false); };
     location.replace('http://example.com#route');
     Backbone.history.navigate('route');
@@ -198,7 +198,7 @@ $(document).ready(function() {
     equal(router.count, 1);
   });
 
-  test("resources via navigate with {replace: true}", 1, function() {
+  test("routes via navigate with {replace: true}", 1, function() {
     location.replace('http://example.com#start_here');
     Backbone.history.checkUrl();
     location.replace = function(href) {
@@ -207,13 +207,13 @@ $(document).ready(function() {
     Backbone.history.navigate('end_here', {replace: true});
   });
 
-  test("resources (splats)", 1, function() {
+  test("routes (splats)", 1, function() {
     location.replace('http://example.com#splat/long-list/of/splatted_99args/end');
     Backbone.history.checkUrl();
     equal(router.args, 'long-list/of/splatted_99args');
   });
 
-  test("resources (optional)", 2, function() {
+  test("routes (optional)", 2, function() {
     location.replace('http://example.com#optional');
     Backbone.history.checkUrl();
     ok(!router.arg);
@@ -222,7 +222,7 @@ $(document).ready(function() {
     equal(router.arg, 'thing');
   });
 
-  test("resources (complex)", 3, function() {
+  test("routes (complex)", 3, function() {
     location.replace('http://example.com#one/two/three/complex-part/four/five/six/seven');
     Backbone.history.checkUrl();
     equal(router.first, 'one/two/three');
@@ -230,7 +230,7 @@ $(document).ready(function() {
     equal(router.rest, 'four/five/six/seven');
   });
 
-  test("resources (query)", 5, function() {
+  test("routes (query)", 5, function() {
     location.replace('http://example.com#mandel?a=b&c=d');
     Backbone.history.checkUrl();
     equal(router.entity, 'mandel');
@@ -240,7 +240,7 @@ $(document).ready(function() {
     equal(lastArgs[1], 'a=b&c=d');
   });
 
-  test("resources (anything)", 1, function() {
+  test("routes (anything)", 1, function() {
     location.replace('http://example.com#doesnt-match-a-route');
     Backbone.history.checkUrl();
     equal(router.anything, 'doesnt-match-a-route');
