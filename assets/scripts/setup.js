@@ -15,7 +15,7 @@ define([
     'backbone',
     'underscore',
     'jquery',
-    'userResources',
+    'routes',
     'user',
     'users',
     'usersView',
@@ -51,7 +51,6 @@ define([
     var usersView = new UsersView({ collection: users });
     var slideShowsView = new SlideShowsView({ collection: slideShows });
 
-    console.log(slideShow);
     $('.main').append(usersView.render().el);
     $('.main').append(slideShowsView.render().el);
 

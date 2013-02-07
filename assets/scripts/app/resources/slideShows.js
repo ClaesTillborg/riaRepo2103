@@ -2,16 +2,15 @@ define(['backbone'], function(Backbone) {
 
     // Model resources with including functions
 
-    App.Resourses.User = Backbone.Router.extend({
+    App.Resourses.SlideShows = Backbone.Router.extend({
         routes: {
-            '': 'root',
-            'users': 'index',
-            'users/new': 'new',
-            'users/create': 'create',
-            'users/:id': 'show',
-            'users/:id/edit': 'edit',
-            'users/:id/update': 'update',
-            'users/:id/destroy': 'destroy'
+            'slideshows': 'index',
+            'slideshows/new': 'new',
+            'slideshows/create': 'create',
+            'slideshows/:id': 'show',
+            'slideshows/:id/edit': 'edit',
+            'slideshows/:id/update': 'update',
+            'slideshows/:id/destroy': 'destroy'
         },
 
         root: function() {
@@ -24,7 +23,7 @@ define(['backbone'], function(Backbone) {
          */
         index: function() {
 
-            console.log('This is a user collection');
+            console.log('This is a slideShow collection');
         },
 
         /**
@@ -33,7 +32,7 @@ define(['backbone'], function(Backbone) {
          * Set the form for creating an object
          */
         new: function() {
-            console.log('new');
+            console.log('new slideShow');
         },
 
         /**
@@ -42,7 +41,7 @@ define(['backbone'], function(Backbone) {
          * Receives data from #new and creates object
          */
         create: function() {
-            console.log('create');
+            console.log('create slideShow');
         },
 
         /**
@@ -53,7 +52,7 @@ define(['backbone'], function(Backbone) {
          * @param id
          */
         show: function(id) {
-            console.log('Show user with id: ' + id);
+            console.log('Show slideShow with id: ' + id);
         },
 
         /**
@@ -64,7 +63,7 @@ define(['backbone'], function(Backbone) {
          * @param id
          */
         edit: function(id) {
-            console.log('Edit user with id: ' + id);
+            console.log('Edit slideShow with id: ' + id);
         },
 
         /**
@@ -75,7 +74,7 @@ define(['backbone'], function(Backbone) {
          * @param id
          */
         update: function(id) {
-            console.log('Update user with id: ' + id);
+            console.log('Update slideShow with id: ' + id);
         },
 
         /**
@@ -86,8 +85,8 @@ define(['backbone'], function(Backbone) {
          * @param id
          */
         destroy: function(id) {
-            console.log('Remove user with id: ' + id);
+            console.log('Remove slideShow with id: ' + id);
         }
     });
-    return App.Resourses.User;
+    return App.Resourses.SlideShows;
 });
