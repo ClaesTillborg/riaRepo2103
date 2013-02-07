@@ -1,10 +1,12 @@
-define(['backbone', 'usersResources', 'slideShowsResources'], function(Backbone, UsersResources, SlideShowsResources) {
-
-    new UsersResources;
-    new SlideShowsResources
+define(['backbone', 'usersResources', 'slideShowsResources', 'slidesResources', 'elementsResources'], function(Backbone, UsersResources, SlideShowsResources, SlidesResources, ElementsResources) {
 
     // Model resources with including functions
+    new UsersResources;
+    new SlideShowsResources
+    new SlidesResources
+    new ElementsResources
 
+    // Root resources with including functions
     App.Routes.Routes = Backbone.Router.extend({
         routes: {
             '': 'root',
@@ -17,8 +19,9 @@ define(['backbone', 'usersResources', 'slideShowsResources'], function(Backbone,
 
         // download function
         download: function(filename) {
-            console.log(filename);
+            console.log('Download ' + filename);
         }
     });
+
     return App.Routes.Routes;
 });
