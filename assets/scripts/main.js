@@ -10,6 +10,7 @@ require.config({
         'underscore': 'libs/underscore-amd/underscore-min',
         'backbone': 'libs/backbone-amd/backbone-min',
         'foundation': 'libs/foundation',
+        'text!': 'lib/requirejs-text/text',
 
         /* ================================ config ================================ */
 
@@ -26,7 +27,7 @@ require.config({
         /* ================================ templates ================================ */
 
         // All the templates in the application
-        //'userTemplate': 'text!app/templates/users/user',
+        'userTemplate': 'app/templates/users/user.html',
 
         /* ================================ resources ================================ */
 
