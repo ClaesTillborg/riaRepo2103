@@ -1,16 +1,3 @@
-(function(){
-    window.App = {
-        Models: {},
-        Views: {},
-        Collections: {},
-        Helpers: {},
-        Routes: {},
-        Resourses: {},
-        Templates: {}
-    };
-
-})();
-
 define([
     'backbone',
     'underscore',

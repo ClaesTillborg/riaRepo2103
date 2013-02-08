@@ -1,8 +1,5 @@
 define(['backbone', 'element'],function(Backbone, Element) {
-    App.Collections.Elements = Backbone.Collection.extend({
-        model: Element,
-        url: '/elements'
+    return Backbone.Collection.extend({
+        model: Element
     });
-
-    return App.Collections.Elements;
 });

@@ -1,6 +1,6 @@
 define(['backbone'], function(Backbone) {
 
-    App.Models.Slide = Backbone.Model.extend({
+    return Backbone.Model.extend({
 
         defaults: {
             slideShow: {}, // SlideShow object
@@ -8,10 +8,7 @@ define(['backbone'], function(Backbone) {
             createdAt: new Date(),
             updatedAt: new Date()
         },
-        urlRoots: '/slides',
         validate: function(attrs) {
         }
     });
-
-    return App.Models.Slide;
 });

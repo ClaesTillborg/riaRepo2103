@@ -1,11 +1,9 @@
 define(['backbone', 'templateHelper', 'slideShowView' ], function(Backbone, Template, SlideShowView) {
 
-    App.Views.SlideShows = Backbone.View.extend({
+    // The view for a SlideShow-collection
+    return Backbone.View.extend({
 
-        tagName: 'ul',
-
-        className: 'slide-shows-class-name',
-        id: 'slide-shows-id',
+        className: 'slideshows',
 
         initialize: function() {
             this.collection.on( 'add', this.addOne, this );
@@ -23,6 +21,4 @@ define(['backbone', 'templateHelper', 'slideShowView' ], function(Backbone, Temp
             this.$el.append ( view.render().el );
         }
     });
-
-    return App.Views.SlideShows;
 });

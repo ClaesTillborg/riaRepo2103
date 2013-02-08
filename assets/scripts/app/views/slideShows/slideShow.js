@@ -1,13 +1,11 @@
 define(['backbone', 'templateHelper'], function(Backbone, Template) {
 
-    // SlideShowView
-    App.Views.SlideShow = Backbone.View.extend({
-
-        tagName: 'li',
+    // The view for a SlideShow-object
+    return Backbone.View.extend({
 
         template: Template('slide-show'),
 
-        className: 'slide-show-class-name',
+        className: 'slideshow',
 
         events: {
             'click': 'clickEvent'
@@ -24,6 +22,4 @@ define(['backbone', 'templateHelper'], function(Backbone, Template) {
             return this;
         }
     });
-
-    return App.Views.SlideShow;
 });

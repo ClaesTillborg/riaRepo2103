@@ -1,8 +1,7 @@
 define(['backbone'], function(Backbone) {
 
-    // Model resources with including functions
-
-    App.Resourses.Elements = Backbone.Router.extend({
+    // Element resources with including functions
+    return Backbone.Router.extend({
         routes: {
             'elements': 'index',
             'elements/new': 'new',
@@ -84,5 +83,4 @@ define(['backbone'], function(Backbone) {
             console.log('Remove element with id: ' + id);
         }
     });
-    return App.Resourses.Elements;
 });

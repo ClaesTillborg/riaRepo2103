@@ -1,8 +1,7 @@
 define(['backbone'], function(Backbone) {
 
-    // Model resources with including functions
-
-    App.Resourses.Slides = Backbone.Router.extend({
+    // Slide resources with including functions
+    return Backbone.Router.extend({
         routes: {
             'slides': 'index',
             'slides/new': 'new',
@@ -84,5 +83,4 @@ define(['backbone'], function(Backbone) {
             console.log('Remove slide with id: ' + id);
         }
     });
-    return App.Resourses.Slides;
 });

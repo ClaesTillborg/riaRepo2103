@@ -1,8 +1,7 @@
 define(['backbone'], function(Backbone) {
 
-    // Model resources with including functions
-
-    App.Resourses.Users = Backbone.Router.extend({
+    // User resources with including functions
+    return Backbone.Router.extend({
         routes: {
             'users': 'index',
             'users/new': 'new',
@@ -11,10 +10,6 @@ define(['backbone'], function(Backbone) {
             'users/:id/edit': 'edit',
             'users/:id/update': 'update',
             'users/:id/destroy': 'destroy'
-        },
-
-        root: function() {
-            console.log('this is the root');
         },
         /**
          * GET /:collection
@@ -88,5 +83,4 @@ define(['backbone'], function(Backbone) {
             console.log('Remove user with id: ' + id);
         }
     });
-    return App.Resourses.Users;
 });

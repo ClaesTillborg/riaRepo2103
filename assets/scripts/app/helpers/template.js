@@ -1,7 +1,5 @@
-define(['backbone', 'underscore', 'jquery' ], function( Backbone, _, $) {
-    App.Helpers.Template = function(id) {
-        return _.template( $('#' + id).html() );
+define(['backbone', 'underscore'], function( Backbone, _) {
+    return function(templateName) {
+        return _.template( templateName );
     };
-
-    return App.Helpers.Template;
 });

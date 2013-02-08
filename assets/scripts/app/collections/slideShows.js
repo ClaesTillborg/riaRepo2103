@@ -1,8 +1,5 @@
 define(['backbone', 'slideShow'],function(Backbone, SlideShow) {
-    App.Collections.SlideShows = Backbone.Collection.extend({
-        model: SlideShow,
-        url: '/slide-shows'
+    return Backbone.Collection.extend({
+        model: SlideShow
     });
-
-    return App.Collections.SlideShows;
 });

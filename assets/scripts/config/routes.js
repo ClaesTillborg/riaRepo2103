@@ -7,7 +7,7 @@ define(['backbone', 'usersResources', 'slideShowsResources', 'slidesResources', 
     new ElementsResources
 
     // Root resources with including functions
-    App.Routes.Routes = Backbone.Router.extend({
+    return Backbone.Router.extend({
         routes: {
             '': 'root',
             'download/*filename': 'download'
@@ -22,6 +22,4 @@ define(['backbone', 'usersResources', 'slideShowsResources', 'slidesResources', 
             console.log('Download ' + filename);
         }
     });
-
-    return App.Routes.Routes;
 });

@@ -1,11 +1,9 @@
 define(['backbone', 'templateHelper', 'userView' ], function(Backbone, Template, UserView) {
 
-    App.Views.Users = Backbone.View.extend({
+    // The view for a user-collections
+    return Backbone.View.extend({
 
-        tagName: 'ul',
-
-        className: 'users-class-name',
-        id: 'users-id',
+        className: 'users',
 
         initialize: function() {
             this.collection.on( 'add', this.addOne, this );
@@ -23,6 +21,4 @@ define(['backbone', 'templateHelper', 'userView' ], function(Backbone, Template,
             this.$el.append ( view.render().el );
         }
     });
-
-    return App.Views.Users;
 });
