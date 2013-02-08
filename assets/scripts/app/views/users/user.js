@@ -4,7 +4,7 @@ define(['backbone', 'templateHelper', 'text!userTemplate'], function(Backbone, T
 
         template: Template(UserTemplate),
 
-        className: 'user',
+        className: 'user-wrapper',
 
         events: {
             'click': 'clickEvent'

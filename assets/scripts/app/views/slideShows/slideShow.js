@@ -1,11 +1,11 @@
-define(['backbone', 'templateHelper'], function(Backbone, Template) {
+define(['backbone', 'templateHelper', 'text!slideShowTemplate'], function(Backbone, Template, SlideShowTemplate) {
 
     // The view for a SlideShow-object
     return Backbone.View.extend({
 
-        template: Template('slide-show'),
+        template: Template(SlideShowTemplate),
 
-        className: 'slideshow',
+        className: 'slideshow-wrapper',
 
         events: {
             'click': 'clickEvent'

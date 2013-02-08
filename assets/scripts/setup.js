@@ -2,7 +2,7 @@ define([
     'backbone',
     'underscore',
     'jquery',
-    'routes',
+    'router',
     'user',
     'users',
     'usersView',
@@ -10,12 +10,12 @@ define([
     'slideShows',
     'slideShowsView'
 ], function(
-    Backbone, _, $, routes, User, Users, UsersView, SlideShow, SlideShows, SlideShowsView) {
+    Backbone, _, $, router, User, Users, UsersView, SlideShow, SlideShows, SlideShowsView) {
 
     /**
      * Starts Backbone router
      */
-    new routes;
+    new router;
     Backbone.history.start();
 
     var user = new User({ name: 'Claes Tillborg' });

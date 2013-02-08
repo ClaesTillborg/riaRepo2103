@@ -5,8 +5,11 @@
         "jquery": null,
         "backbone-amd": null,
         "underscore-amd": null,
+        "backbone.localStorage": null,
         "requirejs": null,
         "requirejs-text": null,
-        "foundation": null
+        "foundation": null,
+        "coffee-script": null,
+        "jasmine": null
     }
 }

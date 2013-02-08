@@ -15,7 +15,7 @@ require.config({
         /* ================================ config ================================ */
 
         // Some config files
-        routes: 'config/routes',
+        router: 'config/router',
         namespace: 'config/namespace',
 
         /* ================================ helpers ================================ */
@@ -23,19 +23,6 @@ require.config({
         // Some helpers on the way
         templateHelper: 'app/helpers/template',
         eventHelper: 'app/helpers/event',
-
-        /* ================================ templates ================================ */
-
-        // All the templates in the application
-        userTemplate: 'app/templates/users/user.html',
-
-        /* ================================ resources ================================ */
-
-        // Every models resorce-routes
-        usersResources: 'app/resources/users',
-        slideShowsResources: 'app/resources/slideShows',
-        slidesResources: 'app/resources/slides',
-        elementsResources: 'app/resources/elements',
 
         /* ================================ models ================================ */
 
@@ -59,25 +46,36 @@ require.config({
 
         // All the views in the application separated in model-folders
 
-        // users
+        // Users
         userView: 'app/views/users/user',
         usersView: 'app/views/users/users',
 
-        // slideShows
+        // SlideShows
         slideShowView: 'app/views/slideShows/slideShow',
         slideShowsView: 'app/views/slideShows/slideShows',
 
-        // slides
+        // Slides
         slideView: 'app/views/slides/slide',
         slidesView: 'app/views/slides/slides',
 
-        // elements
+        // Elements
         elementView: 'app/views/elements/element',
         elementsView: 'app/views/elements/elements',
 
-        // elementTypes
+        // ElementTypes
         elementTypeView: 'app/views/elementTypes/elementType',
-        elementsTypeView: 'app/views/elementTypes/elementTypes'
+        elementsTypeView: 'app/views/elementTypes/elementTypes',
+
+        /* ================================ templates ================================ */
+
+        // All the templates in the application
+
+        // User templates
+        userTemplate: 'app/templates/users/user.html',
+
+        // SlideShow templates
+        slideShowTemplate: 'app/templates/slideShows/slideShow.html'
+
     }
 });
 require(['setup']);
