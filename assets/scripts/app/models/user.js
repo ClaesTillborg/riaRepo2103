@@ -6,7 +6,7 @@ define(['backbone'], function(Backbone) {
             createdAt: new Date(),
             updatedAt: new Date()
         },
-        validate: function(attrs) {
+        validate: function( attrs ) {
 
         }
     });

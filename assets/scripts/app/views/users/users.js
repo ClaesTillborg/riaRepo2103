@@ -16,7 +16,7 @@ define(['backbone', 'eventHelper', 'templateHelper', 'userView' ], function(Back
             return this;
         },
         renderCollection: function() {
-            console.log('This is a user collection');
+            $('.main').html(this.render().el);
         },
         addOne: function(model) {
 

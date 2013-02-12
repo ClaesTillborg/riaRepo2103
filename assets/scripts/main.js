@@ -9,6 +9,7 @@ require.config({
         jquery: 'libs/jquery/jquery.min',
         underscore: 'libs/underscore-amd/underscore-min',
         backbone: 'libs/backbone-amd/backbone-min',
+        localStorage: 'libs/backbone.localStorage/backbone.localStorage-min',
         foundation: 'libs/foundation',
         text: 'libs/requirejs/text',
 
@@ -16,7 +17,6 @@ require.config({
 
         // Some config files
         router: 'config/router',
-        namespace: 'config/namespace',
 
         /* ================================ helpers ================================ */
 

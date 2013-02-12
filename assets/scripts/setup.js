@@ -38,8 +38,8 @@ define([
     var usersView = new UsersView({ collection: users });
     var slideShowsView = new SlideShowsView({ collection: slideShows });
 
-    $('.main').append(usersView.render().el);
-    $('.main').append(slideShowsView.render().el);
+    //$('.main').append(usersView.render().el);
+    //$('.main').append(slideShowsView.render().el);
 
 
 });
