@@ -2,6 +2,11 @@
 
 // Create paths for all the modules of tha application
 require.config({
+    shim: {
+      'libs/foundation/javascripts/app': {
+          deps: 'libs/foundation/javascripts/jquery'
+      }
+    },
     paths: {
         /* ================================ libs ================================ */
 
@@ -10,7 +15,8 @@ require.config({
         underscore: 'libs/underscore-amd/underscore-min',
         backbone: 'libs/backbone-amd/backbone-min',
         localStorage: 'libs/backbone.localStorage/backbone.localStorage-min',
-        foundation: 'libs/foundation',
+        foundation: 'libs/foundation/javascripts/foundation.min',
+        foundationApp: 'libs/foundation/javascripts/app',
         text: 'libs/requirejs/text',
 
         /* ================================ config ================================ */
@@ -78,4 +84,4 @@ require.config({
 
     }
 });
-require(['setup']);
+require(['setup', 'foundation' ]);

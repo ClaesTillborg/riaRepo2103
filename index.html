@@ -1,50 +1,76 @@
 <!doctype html>
 <html>
 <head>
-	<title>Title</title>
-	<meta name="author" content="" />
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- CSS -->
-	<link href="assets/css/style.css" media="all" rel="stylesheet" type="text/css">
-	
-	<!-- favicon -->
-	<link href="assets/img/icons/favicon.ico" rel="icon" type="image/x-icon">
-	<link href="assets/img/icons/favicon.ico" rel="shortcut icon" type="image/x-icon">
-	
-	<!-- touch img -->
-	<link href="assets/img/icons/apple-touch-icon.png" rel="apple-touch-icon" type="image/png">
-	<link href="assets/img/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png">
-	<link href="assets/img/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" type="image/png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/foundation.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link href="assets/css/style.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- favicon -->
+    <link href="assets/img/icons/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="assets/img/icons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- touch img -->
+    <link href="assets/img/icons/apple-touch-icon.png" rel="apple-touch-icon" type="image/png">
+    <link href="assets/img/icons/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png">
+    <link href="assets/img/icons/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" type="image/png">
+    <script src="assets/scripts/libs/foundation/javascripts/modernizr.foundation.js"></script>
 </head>
 <body>
-	<div class="content">
-		
-		<header class="header">
-            <h1>Header</h1>
-		</header> <!-- /header -->
-		<nav>
+<div class="content">
+
+    <!-- Positioning the Top Bar -->
+    <div class="fixed contain-to-grid">
+        <!-- Nav-bar -->
+        <nav class="top-bar">
             <ul>
-                <li><a href="#users">Användare</a></li>
-                <li><a href="#slideshows">Pressentationer</a></li>
+                <li class="name"><h1><a href="#">SlideTool</a></h1></li>
+                <li class="toggle-topbar"><a href="#"></a></li>
             </ul>
-		</nav>
-		<section class="main">
+            <section>
+                <ul class="left">
+                    <li><a href="#users">Användare</a></li>
+                    <li><a href="#slideshows">Pressentationer</a></li>
+                </ul>
+            </section>
+        </nav>
+    </div> <!-- /Top-bar -->
+
+    <header class="row header">
+        <div class="twelve columns">
+            <h1>Header</h1>
+        </div>
+    </header> <!-- /header -->
+    <section class="row main">
+        <div class="twelve columns">
             <div class="greeting">
                 <p>Hej, detta är första sidan.</p>
             </div>
-		</section> <!-- /main -->
-		
-		<footer class="footer">
+        </div>
+    </section> <!-- /main -->
+
+    <footer class="row footer">
+        <div class="twelve columns">
             <h2>Footer</h2>
-		</footer> <!-- /footer -->
+        </div>
 
-	</div> <!-- /content -->
+    </footer> <!-- /footer -->
 
-	<!-- scripts -->
-    <script type="text/javascript" data-main="assets/scripts/main.js" src="assets/scripts/libs/requirejs/require.js"></script>
-    </body>
+</div> <!-- /content -->
+
+
+<!-- scripts -->
+<script type="text/javascript" data-main="assets/scripts/main.js" src="assets/scripts/libs/requirejs/require.js"></script>
+<script src="assets/scripts/libs/foundation/javascripts/foundation.min.js"></script>
+
+<!-- Initialize JS Plugins -->
+<script src="assets/scripts/libs/foundation/javascripts/app.js"></script>
+</body>
 </html>
