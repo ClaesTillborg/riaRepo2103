@@ -12,6 +12,7 @@ require.config({
         pureBackbone: 'libs/backbone/backbone-min',
         backbone: 'libs/backbone/backboneModule',
         localStorage: 'libs/backbone/backbone.localStorage-min',
+        localStorageAsync: 'libs/backbone/backbone.localStorage.async',
         relational: 'libs/backbone/backbone.relational',
         foundation: 'libs/foundation/javascripts/foundation.min',
         foundationApp: 'libs/foundation/javascripts/app',
@@ -94,6 +95,7 @@ require.config({
             exports: 'Backbone'
         },
         localStorage: { deps: [ 'pureBackbone', 'underscore' ] },
+        localStorageAsync: { deps: [ 'pureBackbone', 'underscore' ] },
         relational: { deps: [ 'pureBackbone', 'underscore'] },
         foundation: { deps: [ 'JQ' ] },
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
