@@ -1,20 +1,18 @@
 /* global require */
 
-// Create paths for all the modules of tha application
+
 require.config({
-    shim: {
-      'libs/foundation/javascripts/app': {
-          deps: 'libs/foundation/javascripts/jquery'
-      }
-    },
+    // Create paths for all the modules of tha application
     paths: {
         /* ================================ libs ================================ */
 
         // Here are the paths to the libraries in the application
-        jquery: 'libs/jquery/jquery.min',
+        JQ: 'libs/jquery/jquery.min',
         underscore: 'libs/underscore-amd/underscore-min',
-        backbone: 'libs/backbone-amd/backbone-min',
-        localStorage: 'libs/backbone.localStorage/backbone.localStorage-min',
+        pureBackbone: 'libs/backbone/backbone-min',
+        backbone: 'libs/backbone/backboneModule',
+        localStorage: 'libs/backbone/backbone.localStorage-min',
+        relational: 'libs/backbone/backbone.relational',
         foundation: 'libs/foundation/javascripts/foundation.min',
         foundationApp: 'libs/foundation/javascripts/app',
         text: 'libs/requirejs/text',
@@ -82,6 +80,23 @@ require.config({
         // SlideShow templates
         slideShowTemplate: 'app/templates/slideShows/slideShow.html'
 
+    },
+    shim: {
+        underscore: {
+            init: function() { return this._.noConflict(); } // remove the global underscore
+        },
+        jQ: {
+            init: function() { return this.jQuery.noConflict(true); } // remove the global jQuery
+        },
+        pureBackbone: {
+            init: function() { return Backbone.noConflict(); }, // remove the global backbone
+            deps: [ 'JQ', 'underscore' ],
+            exports: 'Backbone'
+        },
+        localStorage: { deps: [ 'pureBackbone', 'underscore' ] },
+        relational: { deps: [ 'pureBackbone', 'underscore'] },
+        foundation: { deps: [ 'JQ' ] },
+        foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }
 });
-require(['setup', 'foundation' ]);
+require(['app']);
