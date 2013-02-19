@@ -1,4 +1,4 @@
-define([ 'backbone', 'user', 'localStorage' ], function( Backbone, User, localStorage ) {
+define([ 'backbone', 'user' ], function( Backbone, User ) {
 
     // The collection of Users is backed by *localStorage* instead of a remote
     return Backbone.Collection.extend({

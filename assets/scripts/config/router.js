@@ -1,7 +1,15 @@
-define(['backbone', 'eventHelper'], function(Backbone, vent) {
+define(['backbone', 'eventHelper', 'users', 'userView', 'usersView', 'newUserView'], function(Backbone, vent, Users, userView, usersView, newUserView) {
 
     // Root resources with including functions
     return Backbone.Router.extend({
+
+        initialize: function() {
+
+            // Tells Backbone to start watching for hashchange events
+            Backbone.history.start();
+
+        },
+
         routes: {
             '': 'root',
             'download/*filename': 'download',
@@ -18,7 +26,8 @@ define(['backbone', 'eventHelper'], function(Backbone, vent) {
 
         // Root function
         root: function() {
-            console.log('this is the root');
+
+            new newUserView({ collection: new Users() });
         },
 
         // Download function
@@ -45,7 +54,8 @@ define(['backbone', 'eventHelper'], function(Backbone, vent) {
         // Set the form for creating an object
         new: function(model) {
             if ( this.exists(model) ){
-                console.log( 'new '+ model +' form');
+                console.log('trigger: '+ model + 'New');
+                vent.trigger(model + 'New');
             } else {
                 this.default(model);
             }
@@ -55,7 +65,7 @@ define(['backbone', 'eventHelper'], function(Backbone, vent) {
         // Receives data from #new and creates object
         create: function(model) {
             if ( this.exists(model) ){
-                console.log('create '+ model +' object');
+                console.log('trigger: '+ model + 'Create');
             } else {
                 this.default(model);
             }

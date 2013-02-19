@@ -1,4 +1,4 @@
-define(['backbone'], function(Backbone) {
+define( [ 'backbone' ], function( Backbone ) {
 
     return Backbone.Model.extend({
 
@@ -8,7 +8,7 @@ define(['backbone'], function(Backbone) {
             createdAt: new Date(),
             updatedAt: new Date()
         },
-        validate: function(attrs) {
+        validate: function( attrs ) {
         }
     });
 });

@@ -1,24 +1,26 @@
 define([
     'backbone',
-    'underscore',
-    'jquery',
     'router',
     'user',
     'users',
+    'newUserView',
     'usersView',
     'slideShow',
     'slideShows',
     'slideShowsView'
 ], function(
-    Backbone, _, $, router, User, Users, UsersView, SlideShow, SlideShows, SlideShowsView) {
+    Backbone, router, User, Users, newUserView, UsersView, SlideShow, SlideShows, SlideShowsView) {
 
     /**
      * Starts Backbone router
      */
     new router;
-    Backbone.history.start();
 
-    var user = new User({ name: 'Claes Tillborg' });
+    var user = new User();
+    var userForm = new newUserView({ model: user });
+
+    $('.main').append(userForm.render().el);
+
     var slideShow = new SlideShow({ owner: user })
 
     var slideShows = new SlideShows([
@@ -35,10 +37,11 @@ define([
     ]);
 
     // Create a usersView
+
     var usersView = new UsersView({ collection: users });
     var slideShowsView = new SlideShowsView({ collection: slideShows });
 
-    //$('.main').append(usersView.render().el);
+
     //$('.main').append(slideShowsView.render().el);
 
 

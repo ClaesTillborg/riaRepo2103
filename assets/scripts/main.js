@@ -8,9 +8,9 @@ require.config({
 
         // Here are the paths to the libraries in the application
         JQ: 'libs/jquery/jquery.min',
-        underscore: 'libs/underscore-amd/underscore-min',
+        underscore: 'libs/underscore/underscore-min',
         pureBackbone: 'libs/backbone/backbone-min',
-        backbone: 'libs/backbone/backboneModule',
+        backbone: 'libs/backbone/backbone.module',
         localStorage: 'libs/backbone/backbone.localStorage-min',
         localStorageAsync: 'libs/backbone/backbone.localStorage.async',
         relational: 'libs/backbone/backbone.relational',
@@ -22,6 +22,7 @@ require.config({
 
         // Some config files
         router: 'config/router',
+        seed: 'config/seed',
 
         /* ================================ helpers ================================ */
 
@@ -54,6 +55,7 @@ require.config({
         // Users
         userView: 'app/views/users/user',
         usersView: 'app/views/users/users',
+        newUserView: 'app/views/users/new',
 
         // SlideShows
         slideShowView: 'app/views/slideShows/slideShow',
@@ -77,6 +79,7 @@ require.config({
 
         // User templates
         userTemplate: 'app/templates/users/user.html',
+        newUserTemplate: 'app/templates/users/new.html',
 
         // SlideShow templates
         slideShowTemplate: 'app/templates/slideShows/slideShow.html'
@@ -84,13 +87,14 @@ require.config({
     },
     shim: {
         underscore: {
-            init: function() { return this._.noConflict(); } // remove the global underscore
+            init: function() { return this._.noConflict(); }, // remove the global _
+            exports: '_'
         },
         jQ: {
-            init: function() { return this.jQuery.noConflict(true); } // remove the global jQuery
+            init: function() { return this.jQuery.noConflict(true); }, // remove the global jQuery
+            exports: '$'
         },
         pureBackbone: {
-            init: function() { return Backbone.noConflict(); }, // remove the global backbone
             deps: [ 'JQ', 'underscore' ],
             exports: 'Backbone'
         },
