@@ -102,4 +102,4 @@ require.config({
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }
 });
-require( [ 'app' ] );
+require( [ 'app', 'foundation', 'foundationApp' ] );

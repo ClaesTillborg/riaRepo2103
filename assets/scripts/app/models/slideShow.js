@@ -1,11 +1,19 @@
-define([ 'backbone' ], function( Backbone ) {
+define([ 'backbone', 'slide', 'slides' ], function( Backbone, Slide, Slides ) {
 
-    return Backbone.Model.extend({
-
+    return Backbone.RelationalModel.extend({
+        relations: [{
+            type: Backbone.HasMany,
+            key: 'slides',
+            relatedModel: Slide,
+            collectionType: Slides,
+            reverseRelation: {
+                key: 'slideShow',
+                includeInJSON: 'id'
+                // 'relatedModel' is automatically set to 'SlideShow'; the 'relationType' to 'HasOne'.
+            }
+        }],
         defaults: {
-            owner: {}, // User object
             name: 'Hello world slideshow!',
-            slides: [], // Slide Collection
             createdAt: new Date(),
             updatedAt: new Date()
         },

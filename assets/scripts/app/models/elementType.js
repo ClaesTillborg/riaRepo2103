@@ -1,8 +1,8 @@
 define([ 'backbone' ], function( Backbone ) {
 
-    return Backbone.Model.extend({
+    return Backbone.RelationalModel.extend({
         defaults: {
-            type: 'p'
+            type: 'h1'
         }
     });
 });

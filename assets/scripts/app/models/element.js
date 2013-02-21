@@ -1,10 +1,16 @@
-define([ 'backbone' ], function( Backbone ) {
+define([ 'backbone', 'elementType' ], function( Backbone, ElementType ) {
 
-    return Backbone.Model.extend({
-
+    return Backbone.RelationalModel.extend({
+        relations: [{
+            type: Backbone.HasOne,
+            key: 'type',
+            relatedModel: ElementType,
+            reverseRelation: {
+                type: Backbone.HasOne,
+                key: 'element'
+            }
+        }],
         defaults: {
-            slide: {}, // Slide object
-            type: 'h1', // ElementType object
             content: 'Hello world!',
             createdAt: new Date(),
             updatedAt: new Date()
