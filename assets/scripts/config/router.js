@@ -1,10 +1,5 @@
-define([ 'backbone', 'collections', 'userView', 'usersView', 'newUserView' ], function( Backbone, Collections, userView, usersView, newUserView ) {
+define([ 'backbone', 'underscore' ,'models', 'collections', 'userView', 'usersView', 'newUserView' ], function( Backbone, _, Models, Collections, userView, usersView, newUserView ) {
 
-    // Resources
-    var resources = [
-
-    ]
-    var USER = 'users';
     // Root resources with including functions
     return Backbone.Router.extend({
 
@@ -14,12 +9,15 @@ define([ 'backbone', 'collections', 'userView', 'usersView', 'newUserView' ], fu
             Backbone.history.start();
 
         },
-
+        resources: _.map(Collections, function(resource) {
+            console.log(resource);
+            return resource.resourceName;
+        }),
         routes: {
             '': 'root',
             'download/*filename': 'download',
             'search/:query': 'search',
-            ':resources': 'index',
+            ':resource': 'index',
             ':resource/new': 'new',
             ':resource/create': 'create',
             ':resource/:id': 'show',
@@ -32,7 +30,7 @@ define([ 'backbone', 'collections', 'userView', 'usersView', 'newUserView' ], fu
         // Root function
         root: function() {
 
-            new newUserView({ model: user });
+            //new newUserView({ model: user });
         },
 
         // Download function
@@ -46,75 +44,75 @@ define([ 'backbone', 'collections', 'userView', 'usersView', 'newUserView' ], fu
         },
 
         //GET /:collection
-        index: function(resources) {
-            if ( this.exists(resources) ){
-                var myCollection = this.fechCollection(resources);
+        index: function( resource ) {
+            if ( this.exists( resource ) ){
+                var myCollection = this.fetchCollection(resource);
 
-                Backbone.trigger(resources);
+                Backbone.trigger(resource);
             } else {
-                this.default(resources);
+                this.default(resource);
             }
 
         },
 
-        // GET :model/new
+        // GET :resource/new
         // Set the form for creating an object
-        new: function(model) {
-            if ( this.exists(model) ){
-                console.log('trigger: '+ model + 'New');
-                Backbone.trigger(model + 'New');
+        new: function(resource) {
+            if ( this.exists(resource) ){
+                console.log('trigger: '+ resource + 'New');
+                Backbone.trigger(resource + 'New');
             } else {
-                this.default(model);
+                this.default(resource);
             }
         },
 
-        // POST :model/create
+        // POST :resource/create
         // Receives data from #new and creates object
-        create: function(model) {
-            if ( this.exists(model) ){
-                console.log('trigger: '+ model + 'Create');
+        create: function(resource) {
+            if ( this.exists(resource) ){
+                console.log('trigger: '+ resource + 'Create');
             } else {
-                this.default(model);
+                this.default(resource);
             }
         },
 
-        // GET :model/:id
+        // GET :resource/:id
         // Show one single object
-        show: function(model, id) {
-            if ( this.exists(model) ) {
-                console.log('Show '+ model +' object with id: ' + id);
+        show: function(resource, id) {
+            if ( this.exists(resource) ) {
+                console.log('Show '+ resource +' object with id: ' + id);
             } else {
-                this.default(model);
+                this.default(resource);
             }
         },
 
-        // GET :model/:id/edit
+        // GET :resource/:id/edit
         // Set the form for editing an object
-        edit: function(model, id) {
-            if ( this.exists(model) ){
-                console.log('Edit '+ model +' object with id: ' + id);
+        edit: function(resource, id) {
+            if ( this.exists(resource) ){
+                console.log('Edit '+ resource +' object with id: ' + id);
             } else {
-                this.default(model);
+                this.default(resource);
             }
         },
 
-        // PUT :model/:id/update
+        // PUT :resource/:id/update
         // Receives the date from #edit and updates the object
-        update: function(model, id) {
-            if ( this.exists(model) ){
-                console.log('Update '+ model +' with id: ' + id);
+        update: function(resource, id) {
+            if ( this.exists(resource) ){
+                console.log('Update '+ resource +' with id: ' + id);
             } else {
-                this.default(model);
+                this.default(resource);
             }
         },
 
-        // DELETE :model/:id/destroy
+        // DELETE :resource/:id/destroy
         // Removes an object
-        destroy: function(model, id) {
-            if ( this.exists(model) ){
-                console.log('Remove '+ model +' with id: ' + id);
+        destroy: function(resource, id) {
+            if ( this.exists(resource) ){
+                console.log('Remove '+ resource +' with id: ' + id);
             } else {
-                this.default(model);
+                this.default(resource);
             }
 
         },
@@ -122,26 +120,18 @@ define([ 'backbone', 'collections', 'userView', 'usersView', 'newUserView' ], fu
         default: function(other) {
             alert('404: "' + other + '" does not match any of the routes in this application.');
         },
-        exists: function(model) {
-            return !!(model === 'users' ||
-                model === 'slideshows' ||
-                model === 'slides' ||
-                model === 'elements');
+        exists: function(resource) {
+            return _.contains( this.resources, resource )
         },
-        fetchCollection: function(collection) {
-            if(collection === 'users') {
-                return new Collections.Users();
-            }
-            else if(collection === 'slideshows') {
-                return new Collections.SlideShows();
-            }
-            else if(collection === 'slides') {
-                return new Collections.Slides();
-            }
-            else if(collection === 'elements') {
-                return new Collections.Elements();
-            }
-            return null;
+        fetchCollection: function(resource) {
+
+            // Fetch the correct collection
+            var result = _.find(Collections, function(value) {
+                return value.resourceName === resource;
+            });
+
+            // returns the collection if found
+            return result && result.collection
         }
     });
 });

@@ -1,15 +1,13 @@
-/* global require */
-
-
+// ## Require configuration
 require.config({
-    // Create paths for all the modules of tha application
-    paths: {
-        /* ================================ libs ================================ */
 
+    // Create paths for all the documents in the application
+    paths: {
+        // ###/libs
         // Here are the paths to the libraries in the application
         JQ: 'libs/jquery/jquery.min',
-        pureUnderscore: 'libs/underscore/underscore-min',
-        underscore: 'libs/underscore/underscore.module',
+        underscore: 'libs/underscore/underscore-min',
+        '_': 'libs/underscore/underscore.module',
         pureBackbone: 'libs/backbone/backbone-min',
         backbone: 'libs/backbone/backbone.module',
         localStorage: 'libs/backbone/backbone.localStorage-min',
@@ -19,20 +17,17 @@ require.config({
         foundationApp: 'libs/foundation/javascripts/app',
         text: 'libs/requirejs/text',
 
-        /* ================================ config ================================ */
-
+        // ###/config
         // Some config files
         router: 'config/router',
         seed: 'config/seed',
 
-        /* ================================ helpers ================================ */
-
+        // ###/helpers
         // Some helpers on the way
         templateHelper: 'app/helpers/template',
         eventHelper: 'app/helpers/event',
 
-        /* ================================ models ================================ */
-
+        // ###/models
         // All the models in the application
         user: 'app/models/user',
         slideShow: 'app/models/slideShow',
@@ -40,8 +35,11 @@ require.config({
         element: 'app/models/element',
         elementType: 'app/models/elementType',
 
-        /* ================================ collections ================================ */
+        // Define the models module to have access to all models.
+        // Add new models to the module.
+        models: 'app/models/models.module',
 
+        // ###/collections
         // All the collections in the application
         users: 'app/collections/users',
         slideShows: 'app/collections/slideShows',
@@ -49,55 +47,54 @@ require.config({
         elements: 'app/collections/elements',
         elementTypes: 'app/collections/elementTypes',
 
+        // Define the collection module to have access to all collections.
         // Add new collections to the module.
-        // Define the collection module to have access to all collections
         collections: 'app/collections/collections.module',
 
-        /* ================================ views ================================ */
+        // ###/views
+        // All the views in the application separated in model-folders.
+        // Every view has a matching template.
 
-        // All the views in the application separated in model-folders
-
-        // Users
+        // ####/users
         userView: 'app/views/users/user',
         usersView: 'app/views/users/users',
         newUserView: 'app/views/users/new',
 
-        // SlideShows
+        // ####/slideShows
         slideShowView: 'app/views/slideShows/slideShow',
         slideShowsView: 'app/views/slideShows/slideShows',
 
-        // Slides
+        // ####/slides
         slideView: 'app/views/slides/slide',
         slidesView: 'app/views/slides/slides',
 
-        // Elements
+        // ####/elements
         elementView: 'app/views/elements/element',
         elementsView: 'app/views/elements/elements',
 
-        // ElementTypes
+        // ####/elementTypes
         elementTypeView: 'app/views/elementTypes/elementType',
         elementsTypeView: 'app/views/elementTypes/elementTypes',
 
-        /* ================================ templates ================================ */
+        // ###/templates
+        // All the templates in the application.
+        // Every template belongs to the view with the same name.
 
-        // All the templates in the application
-
-        // User templates
+        // ####User templates
         userTemplate: 'app/templates/users/user.html',
         newUserTemplate: 'app/templates/users/new.html',
 
-        // SlideShow templates
+        // ####SlideShow templates
         slideShowTemplate: 'app/templates/slideShows/slideShow.html'
-
     },
     shim: {
         JQ: {
             init: function() { return this.jQuery.noConflict(true); } // remove the global jQuery
         },
-        pureBackbone: { deps: [ 'JQ', 'pureUnderscore' ] },
-        localStorage: { deps: [ 'pureBackbone', 'pureUnderscore' ] },
-        localStorageAsync: { deps: [ 'pureBackbone', 'pureUnderscore' ] },
-        relational: { deps: [ 'pureBackbone', 'pureUnderscore'] },
+        pureBackbone: { deps: [ 'JQ', 'underscore' ] },
+        localStorage: { deps: [ 'pureBackbone', 'underscore' ] },
+        localStorageAsync: { deps: [ 'pureBackbone', 'underscore' ] },
+        relational: { deps: [ 'underscore', 'pureBackbone' ] },
         foundation: { deps: [ 'JQ' ] },
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }
