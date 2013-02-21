@@ -1,4 +1,6 @@
-define( [ 'pureBackbone', 'localStorage', 'relational' ], function( BackboneModule ) {
-    Backbone.noConflict(); // remove the global Backbone
-    return BackboneModule;
+// Combine the elements for the Backbone module
+define( [ 'pureBackbone', 'localStorage', 'relational' ], function( Backbone ) {
+
+    // remove the global Backbone
+    return Backbone.noConflict();
 });

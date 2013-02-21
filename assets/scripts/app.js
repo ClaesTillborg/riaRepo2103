@@ -1,5 +1,6 @@
 define([
     'backbone',
+    'JQ',
     'router',
     'user',
     'users',
@@ -9,7 +10,7 @@ define([
     'slideShows',
     'slideShowsView'
 ], function(
-    Backbone, router, User, Users, newUserView, UsersView, SlideShow, SlideShows, SlideShowsView) {
+    Backbone, $, router, User, Users, newUserView, UsersView, SlideShow, SlideShows, SlideShowsView) {
 
     /**
      * Starts Backbone router

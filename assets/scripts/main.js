@@ -8,7 +8,8 @@ require.config({
 
         // Here are the paths to the libraries in the application
         JQ: 'libs/jquery/jquery.min',
-        underscore: 'libs/underscore/underscore-min',
+        pureUnderscore: 'libs/underscore/underscore-min',
+        underscore: 'libs/underscore/underscore.module',
         pureBackbone: 'libs/backbone/backbone-min',
         backbone: 'libs/backbone/backbone.module',
         localStorage: 'libs/backbone/backbone.localStorage-min',
@@ -48,6 +49,10 @@ require.config({
         elements: 'app/collections/elements',
         elementTypes: 'app/collections/elementTypes',
 
+        // Add new collections to the module.
+        // Define the collection module to have access to all collections
+        collections: 'app/collections/collections.module',
+
         /* ================================ views ================================ */
 
         // All the views in the application separated in model-folders
@@ -86,23 +91,15 @@ require.config({
 
     },
     shim: {
-        underscore: {
-            init: function() { return this._.noConflict(); }, // remove the global _
-            exports: '_'
+        JQ: {
+            init: function() { return this.jQuery.noConflict(true); } // remove the global jQuery
         },
-        jQ: {
-            init: function() { return this.jQuery.noConflict(true); }, // remove the global jQuery
-            exports: '$'
-        },
-        pureBackbone: {
-            deps: [ 'JQ', 'underscore' ],
-            exports: 'Backbone'
-        },
-        localStorage: { deps: [ 'pureBackbone', 'underscore' ] },
-        localStorageAsync: { deps: [ 'pureBackbone', 'underscore' ] },
-        relational: { deps: [ 'pureBackbone', 'underscore'] },
+        pureBackbone: { deps: [ 'JQ', 'pureUnderscore' ] },
+        localStorage: { deps: [ 'pureBackbone', 'pureUnderscore' ] },
+        localStorageAsync: { deps: [ 'pureBackbone', 'pureUnderscore' ] },
+        relational: { deps: [ 'pureBackbone', 'pureUnderscore'] },
         foundation: { deps: [ 'JQ' ] },
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }
 });
-require(['app']);
+require( [ 'app' ] );

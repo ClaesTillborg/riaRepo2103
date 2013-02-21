@@ -8,7 +8,6 @@
         "backbone.localStorage": null,
         "requirejs": null,
         "requirejs-text": null,
-        "coffee-script": null,
         "jasmine": null
     }
 }

@@ -7,7 +7,7 @@ define(['backbone', 'eventHelper', 'templateHelper', 'user', 'text!newUserTempla
         className: 'user-form-wrapper',
 
         initialize: function() {
-            vent.on( 'usersNew', this.renderForm, this );
+            Backbone.on( 'usersNew', this.renderForm, this );
         },
         events: {
            'submit #new-user-form': 'createUser'

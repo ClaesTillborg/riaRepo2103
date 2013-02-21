@@ -1,5 +1,10 @@
-define(['backbone', 'eventHelper', 'users', 'userView', 'usersView', 'newUserView'], function(Backbone, vent, Users, userView, usersView, newUserView) {
+define([ 'backbone', 'collections', 'userView', 'usersView', 'newUserView' ], function( Backbone, Collections, userView, usersView, newUserView ) {
 
+    // Resources
+    var resources = [
+
+    ]
+    var USER = 'users';
     // Root resources with including functions
     return Backbone.Router.extend({
 
@@ -14,20 +19,20 @@ define(['backbone', 'eventHelper', 'users', 'userView', 'usersView', 'newUserVie
             '': 'root',
             'download/*filename': 'download',
             'search/:query': 'search',
-            ':model': 'index',
-            ':model/new': 'new',
-            ':model/create': 'create',
-            ':model/:id': 'show',
-            ':model/:id/edit': 'edit',
-            ':model/:id/update': 'update',
-            ':model/:id/destroy': 'destroy',
+            ':resources': 'index',
+            ':resource/new': 'new',
+            ':resource/create': 'create',
+            ':resource/:id': 'show',
+            ':resource/:id/edit': 'edit',
+            ':resource/:id/update': 'update',
+            ':resource/:id/destroy': 'destroy',
             '*other': 'default'
         },
 
         // Root function
         root: function() {
 
-            new newUserView({ collection: new Users() });
+            new newUserView({ model: user });
         },
 
         // Download function
@@ -41,11 +46,13 @@ define(['backbone', 'eventHelper', 'users', 'userView', 'usersView', 'newUserVie
         },
 
         //GET /:collection
-        index: function(model) {
-            if ( this.exists(model) ){
-                vent.trigger(model);
+        index: function(resources) {
+            if ( this.exists(resources) ){
+                var myCollection = this.fechCollection(resources);
+
+                Backbone.trigger(resources);
             } else {
-                this.default(model);
+                this.default(resources);
             }
 
         },
@@ -55,7 +62,7 @@ define(['backbone', 'eventHelper', 'users', 'userView', 'usersView', 'newUserVie
         new: function(model) {
             if ( this.exists(model) ){
                 console.log('trigger: '+ model + 'New');
-                vent.trigger(model + 'New');
+                Backbone.trigger(model + 'New');
             } else {
                 this.default(model);
             }
@@ -120,6 +127,21 @@ define(['backbone', 'eventHelper', 'users', 'userView', 'usersView', 'newUserVie
                 model === 'slideshows' ||
                 model === 'slides' ||
                 model === 'elements');
+        },
+        fetchCollection: function(collection) {
+            if(collection === 'users') {
+                return new Collections.Users();
+            }
+            else if(collection === 'slideshows') {
+                return new Collections.SlideShows();
+            }
+            else if(collection === 'slides') {
+                return new Collections.Slides();
+            }
+            else if(collection === 'elements') {
+                return new Collections.Elements();
+            }
+            return null;
         }
     });
 });
