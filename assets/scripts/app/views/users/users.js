@@ -1,4 +1,4 @@
-define(['backbone', 'eventHelper', 'templateHelper', 'userView' ], function(Backbone, vent, Template, UserView) {
+define(['backbone', 'JQ', 'templateHelper', 'userView' ], function(Backbone, $, Template, UserView) {
 
     // The view for a user-collections
     return Backbone.View.extend({
@@ -6,7 +6,7 @@ define(['backbone', 'eventHelper', 'templateHelper', 'userView' ], function(Back
         className: 'users',
 
         initialize: function() {
-            vent.on( 'users', this.renderCollection, this );
+            Backbone.on( 'users', this.renderCollection, this );
             this.collection.on( 'add', this.addOne, this );
         },
 

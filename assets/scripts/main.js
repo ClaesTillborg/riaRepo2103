@@ -25,7 +25,6 @@ require.config({
         // ###/helpers
         // Some helpers on the way
         templateHelper: 'app/helpers/template',
-        eventHelper: 'app/helpers/event',
 
         // ###/models
         // All the models in the application
@@ -76,6 +75,10 @@ require.config({
         elementTypeView: 'app/views/elementTypes/elementType',
         elementsTypeView: 'app/views/elementTypes/elementTypes',
 
+        // Define the models module to have access to all models.
+        // Add new models to the module.
+        views: 'app/views/shared/views.module',
+
         // ###/templates
         // All the templates in the application.
         // Every template belongs to the view with the same name.
@@ -94,7 +97,7 @@ require.config({
         pureBackbone: { deps: [ 'JQ', 'underscore' ] },
         localStorage: { deps: [ 'pureBackbone', 'underscore' ] },
         localStorageAsync: { deps: [ 'pureBackbone', 'underscore' ] },
-        relational: { deps: [ 'underscore', 'pureBackbone' ] },
+        relational: { deps: [ 'pureBackbone','underscore' ] },
         foundation: { deps: [ 'JQ' ] },
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }

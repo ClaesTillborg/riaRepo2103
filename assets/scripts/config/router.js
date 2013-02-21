@@ -1,4 +1,4 @@
-define([ 'backbone', 'underscore' ,'models', 'collections', 'userView', 'usersView', 'newUserView' ], function( Backbone, _, Models, Collections, userView, usersView, newUserView ) {
+define([ 'backbone', '_' ,'models', 'collections', 'views' ], function( Backbone, _, Models, Collections, Views ) {
 
     // Root resources with including functions
     return Backbone.Router.extend({
@@ -9,8 +9,9 @@ define([ 'backbone', 'underscore' ,'models', 'collections', 'userView', 'usersVi
             Backbone.history.start();
 
         },
+
+        // Gets all the resource-names from the collections-module and stores it in an array for comparing.
         resources: _.map(Collections, function(resource) {
-            console.log(resource);
             return resource.resourceName;
         }),
         routes: {
@@ -29,8 +30,8 @@ define([ 'backbone', 'underscore' ,'models', 'collections', 'userView', 'usersVi
 
         // Root function
         root: function() {
-
-            //new newUserView({ model: user });
+            console.log(new Views.newUser({ model: new Models.User() }).render().el);
+            new Views.newUser({ model: new Models.User()}).render();
         },
 
         // Download function

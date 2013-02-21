@@ -1,4 +1,4 @@
-define(['backbone', 'eventHelper', 'templateHelper', 'user', 'text!newUserTemplate'], function(Backbone, vent, Template, User, newUserTemplate) {
+define(['backbone', 'JQ', 'templateHelper', 'user', 'text!newUserTemplate'], function(Backbone, $, Template, User, newUserTemplate) {
     // UserView
     return Backbone.View.extend({
 

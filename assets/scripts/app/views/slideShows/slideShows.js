@@ -1,4 +1,4 @@
-define([ 'backbone', 'eventHelper', 'templateHelper', 'slideShowView' ], function( Backbone, vent, Template, SlideShowView ) {
+define([ 'backbone', 'JQ','templateHelper', 'slideShowView' ], function( Backbone, $, Template, SlideShowView ) {
 
     // The view for a SlideShow-collection
     return Backbone.View.extend({
@@ -6,7 +6,7 @@ define([ 'backbone', 'eventHelper', 'templateHelper', 'slideShowView' ], functio
         className: 'slideshows',
 
         initialize: function() {
-            vent.on( 'slideshows', this.renderCollection, this );
+            Backbone.on( 'slideshows', this.renderCollection, this );
             this.collection.on( 'add', this.addOne, this );
         },
 
