@@ -20,7 +20,7 @@ require.config({
         // ###/config
         // Some config files
         router: 'config/router',
-        seed: 'config/seed',
+        db: 'config/db',
 
         // ###/helpers
         // Some helpers on the way
@@ -102,4 +102,4 @@ require.config({
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }
 });
-require( [ 'app', 'foundation', 'foundationApp' ] );
+require( [ 'db', 'app', 'foundation', 'foundationApp' ] );
