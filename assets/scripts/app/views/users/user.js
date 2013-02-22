@@ -17,7 +17,7 @@ define(['backbone', 'templateHelper', 'text!userTemplate'], function(Backbone, T
             alert('This is a click event!');
         },
         render: function() {
-            this.$el.html( this.template( this.model.errors.toJSON() ) );
+            this.$el.html( this.template( this.model.toJSON() ) );
             return this;
         }
     });

@@ -23,6 +23,5 @@ define(['backbone', 'JQ', 'templateHelper', 'userView' ], function(Backbone, $, 
             var view = new UserView({ model: model } );
             this.$el.append ( view.render().el );
         }
-
     });
 });

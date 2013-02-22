@@ -1,4 +1,4 @@
-define([ 'backbone', '_' ,'models', 'collections', 'views' ], function( Backbone, _, Models, Collections, Views ) {
+define([ 'backbone', 'underscore' ,'models', 'collections', 'views' ], function( Backbone, _, Models, Collections, Views ) {
 
     // Root resources with including functions
     return Backbone.Router.extend({
@@ -47,8 +47,8 @@ define([ 'backbone', '_' ,'models', 'collections', 'views' ], function( Backbone
         //GET /:collection
         index: function( resource ) {
             if ( this.exists( resource ) ){
-                var myCollection = this.fetchCollection(resource);
-
+                // Fetch the collection threw the resource
+                // this.display(resource);
                 Backbone.trigger(resource);
             } else {
                 this.default(resource);
@@ -130,9 +130,26 @@ define([ 'backbone', '_' ,'models', 'collections', 'views' ], function( Backbone
             var result = _.find(Collections, function(value) {
                 return value.resourceName === resource;
             });
+            var resourceView = this.fethView(resource);
+
+            // Fetch any data from localStorage..
+            resourceCollection.fetch();
+            // And create the collectionView
+            resourceCollection.add({ model: new Models.User() });
+            new Views.users({ collection: resourceCollection });
 
             // returns the collection if found
-            return result && result.collection
+            return result && new result.collection
+        },
+        fetchView: function(resource) {
+
+            // Fetch the correct collection
+            var result = _.find(Views, function(value) {
+                return value.resourceName === resource;
+            });
+
+            // returns the collection if found
+            return result && new result.collection
         }
     });
 });

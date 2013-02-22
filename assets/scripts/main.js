@@ -6,8 +6,8 @@ require.config({
         // ###/libs
         // Here are the paths to the libraries in the application
         JQ: 'libs/jquery/jquery.min',
-        underscore: 'libs/underscore/underscore-min',
-        '_': 'libs/underscore/underscore.module',
+        pureUnderscore: 'libs/underscore/underscore',
+        underscore: 'libs/underscore/underscore.module',
         pureBackbone: 'libs/backbone/backbone-min',
         backbone: 'libs/backbone/backbone.module',
         localStorage: 'libs/backbone/backbone.localStorage-min',
@@ -91,13 +91,15 @@ require.config({
         slideShowTemplate: 'app/templates/slideShows/slideShow.html'
     },
     shim: {
+        pureUnderscore: { exports: '_' },
+        underscore: { deps: [ 'pureUnderscore' ],exports: '_' },
         JQ: {
             init: function() { return this.jQuery.noConflict(true); } // remove the global jQuery
         },
         pureBackbone: { deps: [ 'JQ', 'underscore' ] },
         localStorage: { deps: [ 'pureBackbone', 'underscore' ] },
         localStorageAsync: { deps: [ 'pureBackbone', 'underscore' ] },
-        relational: { deps: [ 'pureBackbone','underscore' ] },
+        relational: { deps: [ 'pureBackbone', 'underscore' ] },
         foundation: { deps: [ 'JQ' ] },
         foundationApp: { deps: [ 'foundation', 'JQ' ] }
     }

@@ -13,6 +13,9 @@ define([ 'backbone', 'collections', 'models' ], function( Backbone, Collections,
     console.log(SlideShows.localStorage.save);
 
 
-    Users.add(new Models.User());
+    Users.add( new Models.User( {slideShows: SlideShows } ) );
+    console.log(Users.toJSON());
+    Users.localStorage.save
+
 
 });
