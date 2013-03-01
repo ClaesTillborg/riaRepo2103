@@ -8,7 +8,7 @@ require.config({
         JQ: 'libs/jquery/jquery.min',
         pureUnderscore: 'libs/underscore/underscore',
         underscore: 'libs/underscore/underscore.module',
-        pureBackbone: 'libs/backbone/backbone-min',
+        pureBackbone: 'libs/backbone/backbone',
         backbone: 'libs/backbone/backbone.module',
         localStorage: 'libs/backbone/backbone.localStorage-min',
         localStorageAsync: 'libs/backbone/backbone.localStorage.async',
@@ -57,7 +57,8 @@ require.config({
         // ####/users
         userView: 'app/views/users/user',
         usersView: 'app/views/users/users',
-        newUserView: 'app/views/users/new',
+        userForm: 'app/views/users/form',
+        userShow: 'app/views/users/show',
 
         // ####/slideShows
         slideShowView: 'app/views/slideShows/slideShow',
@@ -85,16 +86,20 @@ require.config({
 
         // ####User templates
         userTemplate: 'app/templates/users/user.html',
-        newUserTemplate: 'app/templates/users/new.html',
+        userFormTemplate: 'app/templates/users/form.html',
+        userShowTemplate: 'app/templates/users/show.html',
 
         // ####SlideShow templates
         slideShowTemplate: 'app/templates/slideShows/slideShow.html'
     },
     shim: {
         pureUnderscore: { exports: '_' },
-        underscore: { deps: [ 'pureUnderscore' ],exports: '_' },
         JQ: {
-            init: function() { return this.jQuery.noConflict(true); } // remove the global jQuery
+            // remove the global jQuery
+            init: function() {
+                console.log("shimming jQuery...");
+                return this.jQuery.noConflict(true);
+            }
         },
         pureBackbone: { deps: [ 'JQ', 'underscore' ] },
         localStorage: { deps: [ 'pureBackbone', 'underscore' ] },

@@ -1,10 +1,10 @@
-define(['backbone', 'templateHelper', 'text!userTemplate'], function(Backbone, Template, UserTemplate) {
+define(['backbone', 'templateHelper', 'text!userShowTemplate'], function(Backbone, Template, showTemplate) {
     // UserView
     return Backbone.View.extend({
 
-        template: Template(UserTemplate),
+        template: Template(showTemplate),
 
-        className: 'user-wrapper',
+        className: 'user-info-wrapper',
 
         events: {
             'click #delete': 'deleteUser'
