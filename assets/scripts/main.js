@@ -34,10 +34,6 @@ require.config({
         element: 'app/models/element',
         elementType: 'app/models/elementType',
 
-        // Define the models module to have access to all models.
-        // Add new models to the module.
-        models: 'app/models/models.module',
-
         // ###/collections
         // All the collections in the application
         users: 'app/collections/users',
@@ -97,7 +93,6 @@ require.config({
         JQ: {
             // remove the global jQuery
             init: function() {
-                console.log("shimming jQuery...");
                 return this.jQuery.noConflict(true);
             }
         },

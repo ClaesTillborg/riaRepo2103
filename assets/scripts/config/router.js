@@ -1,9 +1,16 @@
-define([ 'backbone', 'underscore' ], function( Backbone, _ ) {
+define([ 'backbone', 'underscore',
+// Resources
+    'usersView', 'slideShowsView'
+], function( Backbone, _, Users, slideShows  ) {
 
     // Root resources with including functions
     return Backbone.Router.extend({
 
         initialize: function() {
+
+            // Create the views that will listen fore the triggers
+            new Users();
+            new slideShows();
 
             // Tells Backbone to start watching for hashchange events
             Backbone.history.start();
@@ -29,7 +36,7 @@ define([ 'backbone', 'underscore' ], function( Backbone, _ ) {
 
         // Root function
         root: function() {
-            Backbone.trigger( 'users:new' );
+            Backbone.trigger( 'routes' );
         },
 
         // Download function

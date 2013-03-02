@@ -22,6 +22,9 @@ define([ 'backbone', 'JQ', 'templateHelper', 'text!userFormTemplate' ], function
 
             // If model has an id then update else create
             this.model.id ? this.collection.update( this.model ) : this.collection.add( this.model );
+
+            var loggedIn = this.collection.get( this.model);
+            localStorage.setItem( "loggedIn", loggedIn.get("id") );
         }
     });
 });

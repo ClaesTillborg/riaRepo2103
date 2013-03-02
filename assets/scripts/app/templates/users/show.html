@@ -1,4 +1,14 @@
 <div class="user">
     <h2 class="subheader"><%= name %></h2>
-    <p>Slideshows: <%= slideShows.length %></p>
+    <div>
+        <% if (slideShows.length > 0) { %>
+        <dl class="sub-nav">
+            <dt>Pressentationer:</dt>
+            <dd><a href="#slideshows/<%= id %>/show"><%= name %></a></dd>
+        </dl>
+        <% }else { %>
+        <p>Denna användaren har inga pressentationer.</p>
+        <% } %>
+        <a href="#slideshows/new">Skapa ny pressentation</a>
+    </div>
 </div>

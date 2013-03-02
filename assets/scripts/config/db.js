@@ -1,4 +1,4 @@
-define([ 'backbone', 'collections', 'models' ], function( Backbone, Collections, Models ) {
+define([ 'backbone', 'collections' ], function( Backbone, Collections ) {
 
     return {
         seed: function() {
