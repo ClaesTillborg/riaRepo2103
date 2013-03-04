@@ -1,5 +1,8 @@
 <div class="user">
     <h2 class="subheader"><%= name %></h2>
+    <a id="edit-button" class="button small" href="#users/<%= id %>/edit">Redigera Användaren</a>
+    <a id="delete-button" class="button small" href="#users">Ta bort användaren</a>
+    <hr>
     <div>
         <% if (slideShows.length > 0) { %>
         <dl class="sub-nav">
@@ -9,6 +12,8 @@
         <% }else { %>
         <p>Denna användaren har inga pressentationer.</p>
         <% } %>
-        <a href="#slideshows/new">Skapa ny pressentation</a>
+        <a id="loggin-button" class="button small" href="#slideshows/new">Skapa ny pressentation</a>
+        <hr>
+
     </div>
 </div>

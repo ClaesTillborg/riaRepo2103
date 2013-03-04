@@ -7,10 +7,14 @@ define(['backbone', 'templateHelper', 'text!userShowTemplate'], function(Backbon
         className: 'user-info-wrapper',
 
         events: {
-            'click #delete': 'deleteUser'
+            'click #delete-button': 'deleteModel',
+            'click #loggin-button': 'loggIn'
         },
-        deleteUser: function() {
+        deleteModel: function() {
             this.model.destroy();
+        },
+        loggIn: function(){
+            localStorage.setItem( "loggedIn", this.model.get("id") );
         },
         render: function() {
             this.$el.html( this.template( this.model.toJSON() ) );

@@ -36,7 +36,7 @@ define([ 'backbone', 'underscore',
 
         // Root function
         root: function() {
-            Backbone.trigger( 'routes' );
+            this.navigate("users", true);
         },
 
         // Download function

@@ -59,6 +59,8 @@ require.config({
         // ####/slideShows
         slideShowView: 'app/views/slideShows/slideShow',
         slideShowsView: 'app/views/slideShows/slideShows',
+        slideShowForm: 'app/views/slideShows/form',
+        slideShowShow: 'app/views/slideShows/show',
 
         // ####/slides
         slideView: 'app/views/slides/slide',
@@ -86,7 +88,9 @@ require.config({
         userShowTemplate: 'app/templates/users/show.html',
 
         // ####SlideShow templates
-        slideShowTemplate: 'app/templates/slideShows/slideShow.html'
+        slideShowTemplate: 'app/templates/slideShows/slideShow.html',
+        slideShowFormTemplate: 'app/templates/users/form.html',
+        slideShowShowTemplate: 'app/templates/users/show.html'
     },
     shim: {
         pureUnderscore: { exports: '_' },

@@ -24,10 +24,6 @@ define([
                 this.collection = new Users();
                 this.collection.fetch();
 
-                // Invokes the addOne function whenever a new user is added to the collection
-                this.collection.on( 'add', this.addOne, this );
-                this.collection.on( 'remove', this.removeOne, this );
-
                 //Listen for index route
                 Backbone.on( this.resource + ':index', this.index, this );
 
@@ -43,7 +39,8 @@ define([
             },
             index: function() {
                 this.$el.empty();
-
+                // fetching all stored users
+                this.collection.fetch();
                 // Render all users in the collection
                 this.collection.each( this.addOne, this );
 
@@ -53,7 +50,6 @@ define([
             // Set the form for creating an object
             new: function() {
                 this.$el.empty();
-                console.log( 'new' );
                 var view = new this.formView({ model: new this.model(), collection: this.collection });
                 this.$el.html( view.render().el );
 
@@ -62,7 +58,6 @@ define([
 
             // Show one single object
             show: function( id ) {
-                console.log( 'show', id );
                 var fetchedModel = this.collection.get( id );
                 var view = new this.showView({ model: fetchedModel, collection: this.collection });
                 this.$el.html( view.render().el );

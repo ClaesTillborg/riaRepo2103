@@ -1,0 +1,14 @@
+<div class="slide-show">
+    <h2 class="subheader"><%= name %></h2>
+    <div>
+        <% if (slides.length > 0) { %>
+        <dl class="sub-nav">
+            <dt>Pressentationssidor:</dt>
+            <dd><a href="#slides/<%= id %>/show"><%= name %></a></dd>
+        </dl>
+        <% }else { %>
+        <p>Denna pressentationen har inga sidor.</p>
+        <% } %>
+        <a href="#slides/new">Skapa ny pressentation</a>
+    </div>
+</div>

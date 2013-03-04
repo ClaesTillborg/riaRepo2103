@@ -4,7 +4,7 @@ define([
     // Collection & Model
     'slideShows', 'slideShow',
     // Views
-    'slideShowView' ], function( Backbone, $, SlideShows, SlideShow, listItemView ) {
+    'slideShowView', 'slideShowForm', 'slideShowShow'  ], function( Backbone, $, SlideShows, SlideShow, listItemView, form, show  ) {
 
     // The view for a SlideShow-collection
     return Backbone.View.extend({
@@ -16,6 +16,8 @@ define([
 
         // Views
         listItemView: listItemView,
+        showView: show,
+        formView: form,
 
         initialize: function() {
 
