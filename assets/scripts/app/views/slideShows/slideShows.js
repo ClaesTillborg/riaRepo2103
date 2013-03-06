@@ -3,8 +3,10 @@ define([
     'backbone', 'JQ',
     // Collection & Model
     'slideShows', 'slideShow',
+    // Related Collections
+    'slides',
     // Views
-    'slideShowView', 'slideShowForm', 'slideShowShow'  ], function( Backbone, $, SlideShows, SlideShow, listItemView, form, show  ) {
+    'slideShowView', 'slideShowForm', 'slideShowShow'  ], function( Backbone, $, Slides, SlideShows, SlideShow, listItemView, form, show  ) {
 
     // The view for a SlideShow-collection
     return Backbone.View.extend({
@@ -21,13 +23,9 @@ define([
 
         initialize: function() {
 
-            // Begin creating a collection and fetch stored user-models
+            // Begin creating a collection
             this.collection = new SlideShows();
-            this.collection.fetch();
 
-            // Invokes the addOne function whenever a new user is added to the collection
-            this.collection.on( 'add', this.addOne, this );
-            this.collection.on( 'remove', this.removeOne, this );
             //Listen for index route
             Backbone.on( this.resource + ':index', this.index, this );
 
@@ -55,7 +53,8 @@ define([
         new: function() {
             this.$el.empty();
             console.log( 'new' );
-            var view = new this.formView({ model: new this.model(), collection: this.collection });
+            var model = new this.model({  });
+            var view = new this.formView({ model: model, collection: this.collection });
             this.$el.html( view.render().el );
 
             $( '.main' ).html( this.el );

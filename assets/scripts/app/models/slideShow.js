@@ -1,7 +1,7 @@
 define([ 'backbone', 'slide', 'slides' ], function( Backbone, Slide, Slides ) {
 
     return Backbone.RelationalModel.extend({
-        relations: [{
+       /* relations: [{
             type: Backbone.HasMany,
             key: 'slides',
             relatedModel: Slide,
@@ -11,9 +11,10 @@ define([ 'backbone', 'slide', 'slides' ], function( Backbone, Slide, Slides ) {
                 includeInJSON: 'id'
                 // 'relatedModel' is automatically set to 'SlideShow'; the 'relationType' to 'HasOne'.
             }
-        }],
+        }],*/
         defaults: {
             name: 'Hello world slideshow!',
+            slides: new Slides(),
             createdAt: new Date(),
             updatedAt: new Date()
         },

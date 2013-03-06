@@ -1,27 +1,15 @@
-define([ 'backbone', 'underscore',
-// Resources
-    'usersView', 'slideShowsView'
-], function( Backbone, _, Users, slideShows  ) {
+define([ 'backbone', 'underscore' ], function( Backbone, _ ) {
 
     // Root resources with including functions
     return Backbone.Router.extend({
-
-        initialize: function() {
-
-            // Create the views that will listen fore the triggers
-            new Users();
-            new slideShows();
-
-            // Tells Backbone to start watching for hashchange events
-            Backbone.history.start();
-
-        },
 
         // Set all the resourcesthat will respond to the collections.
         resources: {
             Users: 'users',
             SlideShows: 'slideshows',
-            Slides: 'slides'
+            exists: function( name ) {
+                return _.contains( this, name );
+            }
         },
         routes: {
             '': 'root',
@@ -36,7 +24,7 @@ define([ 'backbone', 'underscore',
 
         // Root function
         root: function() {
-            this.navigate("users", true);
+            this.navigate(this.resources.Users, true);
         },
 
         // Download function
@@ -76,22 +64,20 @@ define([ 'backbone', 'underscore',
         default: function( other ) {
             alert('404: "' + other + '" does not match any of the routes in this application.');
         },
-        triggerView: function( resource, view, id ) {
+        triggerView: function( resourceName, view, id ) {
 
             // Check if resource exists and trigger the appropriate view
-            if ( this.exists( resource ) ) {
+            if ( this.resources.exists( resourceName ) ) {
 
                 // Include view in event if specified
-                var event = view ? resource + ':' + view : resource;
+                var event = view ? resourceName + ':' + view : resourceName;
                 console.log(event);
 
                 id ? Backbone.trigger(event, [id]) : Backbone.trigger(event);
-            } else {
-                this.default( resource );
             }
-        },
-        exists: function( resource ) {
-            return _.contains( this.resources, resource )
+            else {
+                this.default( resourceName );
+            }
         }
     });
 });

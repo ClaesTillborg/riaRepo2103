@@ -1,5 +1,10 @@
 <div class="user">
     <h2 class="subheader"><%= name %></h2>
+    <p>
+        <span>Skapad: <%= new Date( createdAt ) %></span>
+        <br>
+        <span>Updaterad: <%= new Date( updatedAt ) %></span>
+    </p>
     <a id="edit-button" class="button small" href="#users/<%= id %>/edit">Redigera Användaren</a>
     <a id="delete-button" class="button small" href="#users">Ta bort användaren</a>
     <hr>

@@ -1,10 +1,15 @@
-define([ 'backbone', 'router'], function( Backbone, Router ) {
+define([ 'backbone', 'router', 'usersView', 'slideShowsView' ], function( Backbone, Router, Users, slideShows ) {
+
+    // Create my collectionViews
+    new Users();
+    new slideShows();
 
     /**
      * Starts Backbone router
      */
     new Router;
 
-    //router.navigate("users", true);
+    // Tells Backbone to start watching for has change events
+    Backbone.history.start();
 
 });
